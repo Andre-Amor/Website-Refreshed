@@ -542,6 +542,23 @@ const ADMIN_PAGE_HTML = `<!doctype html>
         overscroll-behavior: contain;
       }
 
+      .shop-list-filter {
+        display: grid;
+        gap: 0.4rem;
+        padding: 0.8rem 1rem;
+        border-bottom: 1px solid var(--line);
+        background: var(--panel-strong);
+      }
+
+      .shop-list-empty {
+        margin: 0;
+        padding: 1rem;
+        color: var(--muted);
+        font-size: 0.9rem;
+        line-height: 1.5;
+        text-align: center;
+      }
+
       .shop-card {
         display: grid;
         grid-template-columns: 3rem minmax(0, 1fr);
@@ -812,6 +829,10 @@ const ADMIN_PAGE_HTML = `<!doctype html>
               <button id="new-shop" type="button" class="button-primary">New shop</button>
             </div>
           </div>
+          <div class="shop-list-filter">
+            <label for="city-key">Show shops in</label>
+            <select id="city-key" name="cityKey"></select>
+          </div>
           <div id="shop-list" class="shop-list"></div>
         </aside>
 
@@ -823,11 +844,6 @@ const ADMIN_PAGE_HTML = `<!doctype html>
             <div id="status" class="status"></div>
             <form id="shop-form">
               <div class="form-grid">
-                <div class="field-group">
-                  <label for="city-key">City</label>
-                  <select id="city-key" name="cityKey"></select>
-                </div>
-
                 <div class="field-group">
                   <label for="name">Name</label>
                   <input id="name" name="name" type="text" required />
@@ -1145,7 +1161,7 @@ const ADMIN_PAGE_HTML = `<!doctype html>
         entries.forEach(([cityKey, city]) => {
           const option = document.createElement("option");
           option.value = cityKey;
-          option.textContent = city.label;
+          option.textContent = city.label + " (" + city.shops.length + ")";
           citySelect.append(option);
         });
 
@@ -1182,6 +1198,14 @@ const ADMIN_PAGE_HTML = `<!doctype html>
         shopListElement.innerHTML = "";
 
         if (!city) {
+          return;
+        }
+
+        if (city.shops.length === 0) {
+          const emptyState = document.createElement("p");
+          emptyState.className = "shop-list-empty";
+          emptyState.textContent = "No shops in " + city.label + " yet.";
+          shopListElement.append(emptyState);
           return;
         }
 
@@ -1357,6 +1381,7 @@ const ADMIN_PAGE_HTML = `<!doctype html>
           }
 
           state.data = result.data;
+          fillCityOptions();
           resetToBlankShop();
           renderShopList();
           setStatus("Deleted " + selectedShop.name + ".", "success");
@@ -1369,7 +1394,7 @@ const ADMIN_PAGE_HTML = `<!doctype html>
         state.cityKey = citySelect.value;
         resetToBlankShop();
         renderShopList();
-        setStatus("Switched city.", "");
+        setStatus("Showing shops in " + getCity().label + ".", "");
       });
 
       newShopButton.addEventListener("click", () => {
