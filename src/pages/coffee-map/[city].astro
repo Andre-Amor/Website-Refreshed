@@ -1,0 +1,47 @@
+---
+import CoffeeMap from "../../components/CoffeeMap.astro";
+import {
+  coffeeCityGuides,
+  getCoffeeCityDataPath,
+  getCoffeeCityPageTitle,
+  getCoffeeCityPath,
+  sanFranciscoCoffeeGuide,
+  type CoffeeCity,
+} from "../../data/coffeeShops";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+export function getStaticPaths() {
+  return coffeeCityGuides
+    .filter((city) => city.id !== sanFranciscoCoffeeGuide.id)
+    .map((city) => ({
+      params: { city: city.id },
+      props: { city },
+    }));
+}
+
+interface Props {
+  city: CoffeeCity;
+}
+
+const { city } = Astro.props;
+const cityOptions = coffeeCityGuides.map((option) => ({
+  id: option.id,
+  label: option.shortLabel,
+  href: getCoffeeCityPath(option),
+  dataHref: getCoffeeCityDataPath(option),
+  pageTitle: getCoffeeCityPageTitle(option),
+  center: option.center,
+  initialBounds: option.initialBounds,
+}));
+---
+
+<BaseLayout title={getCoffeeCityPageTitle(city)} fullBleed={true}>
+  <CoffeeMap
+    title="Favorite Coffee Shops"
+    cityId={city.id}
+    cityOptions={cityOptions}
+    center={city.center}
+    initialBounds={city.initialBounds}
+    shops={city.shops}
+  />
+</BaseLayout>

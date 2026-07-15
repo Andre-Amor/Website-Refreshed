@@ -2,7 +2,12 @@
   "sanFrancisco": {
     "id": "san-francisco",
     "label": "San Francisco, California",
+    "shortLabel": "SF",
     "center": [-122.433, 37.764],
+    "initialBounds": [
+      [-122.4326, 37.78215],
+      [-122.4254, 37.78785]
+    ],
     "shops": [
       {
         "id": "capital-one-cafe",
@@ -1519,5 +1524,16 @@
         }
       }
     ]
+  },
+  "seattle": {
+    "id": "seattle",
+    "label": "Seattle, Washington",
+    "shortLabel": "Seattle",
+    "center": [-122.3321, 47.6062],
+    "initialBounds": [
+      [-122.375, 47.58],
+      [-122.29, 47.635]
+    ],
+    "shops": []
   }
 }
