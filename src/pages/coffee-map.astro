@@ -1,14 +1,32 @@
 ---
 import CoffeeMap from "../components/CoffeeMap.astro";
-import { sanFranciscoCoffeeGuide } from "../data/coffeeShops";
+import {
+  coffeeCityGuides,
+  getCoffeeCityDataPath,
+  getCoffeeCityPageTitle,
+  getCoffeeCityPath,
+  sanFranciscoCoffeeGuide,
+} from "../data/coffeeShops";
 import BaseLayout from "../layouts/BaseLayout.astro";
+
+const cityOptions = coffeeCityGuides.map((city) => ({
+  id: city.id,
+  label: city.shortLabel,
+  href: getCoffeeCityPath(city),
+  dataHref: getCoffeeCityDataPath(city),
+  pageTitle: getCoffeeCityPageTitle(city),
+  center: city.center,
+  initialBounds: city.initialBounds,
+}));
 ---
 
-<BaseLayout title="Favorite Coffee Shops | Andre Amor" fullBleed={true}>
+<BaseLayout title={getCoffeeCityPageTitle(sanFranciscoCoffeeGuide)} fullBleed={true}>
   <CoffeeMap
     title="Favorite Coffee Shops"
-    cityLabel={sanFranciscoCoffeeGuide.label}
+    cityId={sanFranciscoCoffeeGuide.id}
+    cityOptions={cityOptions}
     center={sanFranciscoCoffeeGuide.center}
+    initialBounds={sanFranciscoCoffeeGuide.initialBounds}
     shops={sanFranciscoCoffeeGuide.shops}
   />
 </BaseLayout>

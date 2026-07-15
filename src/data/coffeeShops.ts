@@ -30,10 +30,23 @@ export type CoffeeShop = {
 export type CoffeeCity = {
   id: string;
   label: string;
+  shortLabel: string;
   center: [number, number];
+  initialBounds?: [[number, number], [number, number]];
   shops: CoffeeShop[];
 };
 
 export const coffeeCities = coffeeCitiesData as Record<string, CoffeeCity>;
 
 export const sanFranciscoCoffeeGuide = coffeeCities.sanFrancisco;
+export const coffeeCityGuides = Object.values(coffeeCities);
+
+export const getCoffeeCityPath = (city: CoffeeCity) =>
+  city.id === sanFranciscoCoffeeGuide.id ? "/coffee-map" : `/coffee-map/${city.id}`;
+
+export const getCoffeeCityDataPath = (city: CoffeeCity) => `/coffee-map/data/${city.id}.json`;
+
+export const getCoffeeCityPageTitle = (city: CoffeeCity) =>
+  city.id === sanFranciscoCoffeeGuide.id
+    ? "Favorite Coffee Shops | Andre Amor"
+    : `Favorite Coffee Shops in ${city.label} | Andre Amor`;

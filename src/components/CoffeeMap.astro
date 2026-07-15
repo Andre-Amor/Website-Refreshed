@@ -2,9 +2,20 @@
 import "leaflet/dist/leaflet.css";
 import type { CoffeeShop, CoffeeShopHoursEntry } from "../data/coffeeShops";
 
+type CoffeeCityOption = {
+  id: string;
+  label: string;
+  href: string;
+  dataHref: string;
+  pageTitle: string;
+  center: [number, number];
+  initialBounds?: [[number, number], [number, number]];
+};
+
 interface Props {
   title?: string;
-  cityLabel?: string;
+  cityId?: string;
+  cityOptions?: CoffeeCityOption[];
   shops: CoffeeShop[];
   center?: [number, number];
   initialBounds?: [[number, number], [number, number]];
@@ -12,13 +23,11 @@ interface Props {
 
 const {
   title = "Favorite Coffee Shops",
-  cityLabel = "San Francisco, California",
+  cityId = "san-francisco",
+  cityOptions = [],
   shops,
   center = [-122.433, 37.764],
-  initialBounds = [
-    [-122.4326, 37.78215],
-    [-122.4254, 37.78785],
-  ],
+  initialBounds,
 } = Astro.props;
 
 const mapId = "favorite-coffee-map";
@@ -81,6 +90,7 @@ const neighborhoodOptions = Array.from(
 ).sort((left, right) => left.localeCompare(right));
 
 const sortedShops = [...shops].sort((left, right) => left.name.localeCompare(right.name));
+const selectedCityOption = cityOptions.find((city) => city.id === cityId) ?? cityOptions[0];
 ---
 
 <section
@@ -88,8 +98,9 @@ const sortedShops = [...shops].sort((left, right) => left.name.localeCompare(rig
   class="coffee-map-section"
   aria-labelledby="coffee-map-title"
   data-map-root={mapId}
+  data-city-id={cityId}
   data-center={JSON.stringify(center)}
-  data-initial-bounds={JSON.stringify(initialBounds)}
+  data-initial-bounds={initialBounds ? JSON.stringify(initialBounds) : undefined}
   data-amenity-definitions={JSON.stringify(amenityDefinitions)}
   data-shops={JSON.stringify(shops)}
 >
@@ -122,14 +133,56 @@ const sortedShops = [...shops].sort((left, right) => left.name.localeCompare(rig
         </button>
 
         <div class="coffee-map-sidebar__header">
-          <h2 id="coffee-map-title">{title}</h2>
+          {
+            cityOptions.length > 1 ? (
+              <>
+                <h2 id="coffee-map-title" class="sr-only">
+                  {title}
+                </h2>
+                <div class="coffee-map-city-picker">
+                  <label class="sr-only" for={`${mapId}-city`}>
+                    Choose a coffee map city
+                  </label>
+                  <span class="coffee-map-city-picker__field">
+                    <span class="coffee-map-city-picker__label" aria-hidden="true" data-city-label>
+                      {title} {selectedCityOption?.label}
+                    </span>
+                    <select id={`${mapId}-city`} data-city-select>
+                      {cityOptions.map((city) => (
+                        <option
+                          value={city.href}
+                          selected={city.id === cityId}
+                          data-city-id={city.id}
+                          data-data-href={city.dataHref}
+                          data-page-title={city.pageTitle}
+                          data-center={JSON.stringify(city.center)}
+                          data-initial-bounds={
+                            city.initialBounds ? JSON.stringify(city.initialBounds) : undefined
+                          }
+                        >
+                          {title} {city.label}
+                        </option>
+                      ))}
+                    </select>
+                  </span>
+                </div>
+              </>
+            ) : (
+              <h2 id="coffee-map-title">{title}</h2>
+            )
+          }
           <p class="coffee-map-sidebar__summary" data-filter-summary>
             {shops.length}
             {shops.length === 1 ? "shop" : "shops"}
           </p>
         </div>
 
-        <div class="coffee-map-sidebar__filters" aria-label="Filter coffee shops">
+        <div
+          class="coffee-map-sidebar__filters"
+          aria-label="Filter coffee shops"
+          data-filter-controls
+          hidden={shops.length === 0}
+        >
           <details class="coffee-map-filter-group">
             <summary class="coffee-map-filter-group__summary">
               <span class="coffee-map-filter-group__label">Amenities</span>
@@ -168,34 +221,34 @@ const sortedShops = [...shops].sort((left, right) => left.name.localeCompare(rig
                 title={studySpotFilterDefinition.label}
               >
                 <span class="coffee-map-filter__icon" set:html={studySpotFilterDefinition.icon} />
-                <span class="coffee-map-filter__label">
-                  {studySpotFilterDefinition.label}
-                </span>
+                <span class="coffee-map-filter__label">{studySpotFilterDefinition.label}</span>
               </button>
             </div>
           </details>
 
-          {
-            neighborhoodOptions.length > 0 && (
-              <details class="coffee-map-filter-group">
-                <summary class="coffee-map-filter-group__summary">
-                  <span class="coffee-map-filter-group__label">Neighborhood</span>
-                </summary>
-                <div class="coffee-map-filter-group__options">
-                  {neighborhoodOptions.map((neighborhood) => (
-                    <button
-                      class="coffee-map-filter"
-                      type="button"
-                      data-neighborhood-filter={neighborhood}
-                      aria-pressed="false"
-                    >
-                      {neighborhood}
-                    </button>
-                  ))}
-                </div>
-              </details>
-            )
-          }
+          <details
+            class="coffee-map-filter-group"
+            data-neighborhood-filter-group
+            hidden={neighborhoodOptions.length === 0}
+          >
+            <summary class="coffee-map-filter-group__summary">
+              <span class="coffee-map-filter-group__label">Neighborhood</span>
+            </summary>
+            <div class="coffee-map-filter-group__options" data-neighborhood-filter-options>
+              {
+                neighborhoodOptions.map((neighborhood) => (
+                  <button
+                    class="coffee-map-filter"
+                    type="button"
+                    data-neighborhood-filter={neighborhood}
+                    aria-pressed="false"
+                  >
+                    {neighborhood}
+                  </button>
+                ))
+              }
+            </div>
+          </details>
         </div>
       </div>
 
@@ -248,6 +301,7 @@ const sortedShops = [...shops].sort((left, right) => left.name.localeCompare(rig
             </button>
           ))
         }
+        {shops.length === 0 && <p class="coffee-map-sidebar__empty">No coffee shops added yet.</p>}
       </div>
 
       <div
@@ -272,22 +326,27 @@ const sortedShops = [...shops].sort((left, right) => left.name.localeCompare(rig
   if (root instanceof HTMLElement) {
     const DAY_ORDER = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
     const amenityDefinitions = JSON.parse(root.dataset.amenityDefinitions ?? "{}");
-    const shops = JSON.parse(root.dataset.shops ?? "[]");
-    const center = JSON.parse(root.dataset.center ?? "[-122.433, 37.764]");
-    const initialBounds = JSON.parse(
-      root.dataset.initialBounds ?? "[[-122.4326, 37.78215], [-122.4254, 37.78785]]",
-    );
+    let currentCityId = root.dataset.cityId ?? "san-francisco";
+    let shops = JSON.parse(root.dataset.shops ?? "[]");
+    let center = JSON.parse(root.dataset.center ?? "[-122.433, 37.764]");
+    let initialBounds = root.dataset.initialBounds
+      ? JSON.parse(root.dataset.initialBounds)
+      : undefined;
     const mapContainer = root.querySelector("[data-map-canvas]");
     const sidebar = root.querySelector("[data-sidebar]");
     const sidebarResizer = root.querySelector("[data-sidebar-resizer]");
     const sidebarReopen = root.querySelector("[data-sidebar-reopen]");
     const mobileSheetHandle = root.querySelector("[data-mobile-sheet-handle]");
-    const listItems = Array.from(root.querySelectorAll("[data-shop-item]"));
+    const shopList = root.querySelector("[data-shop-list]");
+    const filterControls = root.querySelector("[data-filter-controls]");
+    const neighborhoodFilterGroup = root.querySelector("[data-neighborhood-filter-group]");
+    const neighborhoodFilterOptions = root.querySelector("[data-neighborhood-filter-options]");
+    let listItems = Array.from(root.querySelectorAll("[data-shop-item]"));
     const amenityFilterButtons = Array.from(root.querySelectorAll("[data-amenity-filter]"));
     const studySpotFilterButton = root.querySelector("[data-study-spot-filter]");
-    const neighborhoodFilterButtons = Array.from(
-      root.querySelectorAll("[data-neighborhood-filter]"),
-    );
+    let neighborhoodFilterButtons = Array.from(root.querySelectorAll("[data-neighborhood-filter]"));
+    const citySelect = root.querySelector("[data-city-select]");
+    const cityLabel = root.querySelector("[data-city-label]");
     const filterSummary = root.querySelector("[data-filter-summary]");
 
     if (
@@ -295,6 +354,10 @@ const sortedShops = [...shops].sort((left, right) => left.name.localeCompare(rig
       sidebar instanceof HTMLElement &&
       sidebarResizer instanceof HTMLElement &&
       sidebarReopen instanceof HTMLButtonElement &&
+      shopList instanceof HTMLElement &&
+      filterControls instanceof HTMLElement &&
+      neighborhoodFilterGroup instanceof HTMLDetailsElement &&
+      neighborhoodFilterOptions instanceof HTMLElement &&
       mapContainer.dataset.initialized !== "true"
     ) {
       mapContainer.dataset.initialized = "true";
@@ -653,38 +716,41 @@ const sortedShops = [...shops].sort((left, right) => left.name.localeCompare(rig
         };
       };
 
-      const fitToInitialBounds = (duration) => {
-        const padding = getPadding();
+      const getResponsiveBounds = (targetCenter, targetInitialBounds) => {
         const mobileBounds = [
-          [center[0] - 0.05, center[1] - 0.042],
-          [center[0] + 0.05, center[1] + 0.042],
+          [targetCenter[0] - 0.05, targetCenter[1] - 0.042],
+          [targetCenter[0] + 0.05, targetCenter[1] + 0.042],
         ];
         const phoneBounds = [
-          [center[0] - 0.012, center[1] - 0.004],
-          [center[0] + 0.035, center[1] + 0.027],
+          [targetCenter[0] - 0.012, targetCenter[1] - 0.004],
+          [targetCenter[0] + 0.035, targetCenter[1] + 0.027],
         ];
-        const [southWest, northEast] = isPhone()
+
+        return isPhone()
           ? phoneBounds
           : isCompact()
             ? mobileBounds
-            : initialBounds;
+            : (targetInitialBounds ?? mobileBounds);
+      };
+      const getInitialViewMaxZoom = () =>
+        isPhone()
+          ? PHONE_INITIAL_VIEW_MAX_ZOOM
+          : isCompact()
+            ? MOBILE_INITIAL_VIEW_MAX_ZOOM
+            : INITIAL_VIEW_MAX_ZOOM;
+      const toLeafletBounds = ([southWest, northEast]) => [
+        [southWest[1], southWest[0]],
+        [northEast[1], northEast[0]],
+      ];
+      const fitToInitialBounds = (duration) => {
+        const padding = getPadding();
 
-        map.fitBounds(
-          [
-            [southWest[1], southWest[0]],
-            [northEast[1], northEast[0]],
-          ],
-          {
-            paddingTopLeft: [padding.left, padding.top],
-            paddingBottomRight: [padding.right, padding.bottom],
-            maxZoom: isPhone()
-              ? PHONE_INITIAL_VIEW_MAX_ZOOM
-              : isCompact()
-                ? MOBILE_INITIAL_VIEW_MAX_ZOOM
-                : INITIAL_VIEW_MAX_ZOOM,
-            animate: duration > 0,
-          },
-        );
+        map.fitBounds(toLeafletBounds(getResponsiveBounds(center, initialBounds)), {
+          paddingTopLeft: [padding.left, padding.top],
+          paddingBottomRight: [padding.right, padding.bottom],
+          maxZoom: getInitialViewMaxZoom(),
+          animate: duration > 0,
+        });
       };
 
       map.on("zoomend", () => {
@@ -814,6 +880,7 @@ const sortedShops = [...shops].sort((left, right) => left.name.localeCompare(rig
         image.alt = "";
         container.classList.add("has-logo");
         container.append(image);
+        return image;
       };
 
       const createAmenityChip = (kind) => {
@@ -836,6 +903,110 @@ const sortedShops = [...shops].sort((left, right) => left.name.localeCompare(rig
         chip.append(srText);
 
         return chip;
+      };
+
+      const createShopListItem = (shop) => {
+        const item = document.createElement("button");
+        item.type = "button";
+        item.className = "coffee-shop-item";
+        item.dataset.shopItem = "";
+        item.dataset.shopId = shop.id;
+        item.style.setProperty("--shop-accent", shop.accent);
+
+        const badge = document.createElement("span");
+        badge.className = "coffee-shop-item__badge";
+        const badgeImage = appendShopIdentity(badge, shop, "coffee-shop-item__badge-image");
+        badgeImage.loading = "lazy";
+
+        const text = document.createElement("span");
+        text.className = "coffee-shop-item__text";
+
+        const top = document.createElement("span");
+        top.className = "coffee-shop-item__top";
+
+        const identity = document.createElement("span");
+        identity.className = "coffee-shop-item__identity";
+
+        const name = document.createElement("span");
+        name.className = "coffee-shop-item__name";
+        name.textContent = shop.name;
+        identity.append(name);
+
+        if (shop.neighborhood) {
+          const meta = document.createElement("span");
+          meta.className = "coffee-shop-item__meta";
+          meta.textContent = shop.neighborhood;
+          identity.append(meta);
+        }
+
+        top.append(identity);
+
+        const amenities = getVisibleAmenities(shop);
+        if (amenities.length > 0) {
+          const chips = document.createElement("span");
+          chips.className = "coffee-shop-item__chips";
+
+          for (const amenity of amenities) {
+            const chip = createAmenityChip(amenity);
+            if (chip) chips.append(chip);
+          }
+
+          top.append(chips);
+        }
+
+        text.append(top);
+
+        if (shop.address) {
+          const address = document.createElement("span");
+          address.className = "coffee-shop-item__address";
+          address.textContent = shop.address;
+          text.append(address);
+        }
+
+        item.append(badge, text);
+        return item;
+      };
+
+      const renderShopList = () => {
+        const nextItems = [...shops]
+          .sort((left, right) => left.name.localeCompare(right.name))
+          .map(createShopListItem);
+
+        if (nextItems.length === 0) {
+          const emptyState = document.createElement("p");
+          emptyState.className = "coffee-map-sidebar__empty";
+          emptyState.textContent = "No coffee shops added yet.";
+          shopList.replaceChildren(emptyState);
+        } else {
+          shopList.replaceChildren(...nextItems);
+        }
+
+        listItems = nextItems;
+        listItemsById.clear();
+        for (const item of listItems) {
+          if (item.dataset.shopId) {
+            listItemsById.set(item.dataset.shopId, item);
+          }
+        }
+      };
+
+      const renderNeighborhoodFilters = () => {
+        const neighborhoods = Array.from(
+          new Set(shops.map((shop) => shop.neighborhood?.trim()).filter(Boolean)),
+        ).sort((left, right) => left.localeCompare(right));
+        const buttons = neighborhoods.map((neighborhood) => {
+          const button = document.createElement("button");
+          button.type = "button";
+          button.className = "coffee-map-filter";
+          button.dataset.neighborhoodFilter = neighborhood;
+          button.setAttribute("aria-pressed", "false");
+          button.textContent = neighborhood;
+          return button;
+        });
+
+        neighborhoodFilterOptions.replaceChildren(...buttons);
+        neighborhoodFilterGroup.hidden = buttons.length === 0;
+        neighborhoodFilterButtons = buttons;
       };
 
       const createPopupContent = (shop) => {
@@ -1120,14 +1291,62 @@ const sortedShops = [...shops].sort((left, right) => left.name.localeCompare(rig
         applyFilters();
       };
 
-      for (const item of listItems) {
-        item.addEventListener("click", () => {
-          const shop = shopsById.get(item.dataset.shopId);
-          if (shop) {
-            setActiveShop(shop, { revealSidebar: true, centerMap: true });
-          }
-        });
-      }
+      const removeMarkers = () => {
+        clearActiveShop();
+
+        for (const marker of markersById.values()) {
+          map.removeLayer(marker);
+        }
+
+        markersById.clear();
+        markerElements.clear();
+      };
+
+      const applyCityData = (city) => {
+        removeMarkers();
+
+        currentCityId = city.id;
+        shops = Array.isArray(city.shops) ? city.shops : [];
+        center = city.center;
+        initialBounds = city.initialBounds;
+        root.dataset.cityId = currentCityId;
+        root.dataset.shops = JSON.stringify(shops);
+        root.dataset.center = JSON.stringify(center);
+        if (initialBounds) {
+          root.dataset.initialBounds = JSON.stringify(initialBounds);
+        } else {
+          delete root.dataset.initialBounds;
+        }
+
+        shopsById.clear();
+        for (const shop of shops) {
+          shopsById.set(shop.id, shop);
+        }
+
+        activeAmenityFilters.clear();
+        activeNeighborhoodFilters.clear();
+        recommendedStudySpotOnly = false;
+        visibleShopIds = new Set(shops.map((shop) => shop.id));
+
+        renderNeighborhoodFilters();
+        renderShopList();
+        filterControls.hidden = shops.length === 0;
+        addMarkers();
+        markerBaselineZoom = map.getZoom();
+        syncMarkerScale();
+      };
+
+      shopList.addEventListener("click", (event) => {
+        if (!(event.target instanceof Element)) return;
+
+        const item = event.target.closest("[data-shop-item]");
+        if (!(item instanceof HTMLElement) || !shopList.contains(item)) return;
+
+        const shop = shopsById.get(item.dataset.shopId);
+        if (shop) {
+          setActiveShop(shop, { revealSidebar: true, centerMap: true });
+        }
+      });
 
       for (const button of amenityFilterButtons) {
         button.addEventListener("click", () => {
@@ -1144,25 +1363,242 @@ const sortedShops = [...shops].sort((left, right) => left.name.localeCompare(rig
         });
       }
 
-      for (const button of neighborhoodFilterButtons) {
-        button.addEventListener("click", () => {
-          const neighborhood = button.dataset.neighborhoodFilter;
-          if (!neighborhood) return;
+      neighborhoodFilterOptions.addEventListener("click", (event) => {
+        if (!(event.target instanceof Element)) return;
 
-          if (activeNeighborhoodFilters.has(neighborhood)) {
-            activeNeighborhoodFilters.delete(neighborhood);
-          } else {
-            activeNeighborhoodFilters.add(neighborhood);
-          }
+        const button = event.target.closest("[data-neighborhood-filter]");
+        if (!(button instanceof HTMLButtonElement)) return;
 
-          applyFilters();
-        });
-      }
+        const neighborhood = button.dataset.neighborhoodFilter;
+        if (!neighborhood) return;
+
+        if (activeNeighborhoodFilters.has(neighborhood)) {
+          activeNeighborhoodFilters.delete(neighborhood);
+        } else {
+          activeNeighborhoodFilters.add(neighborhood);
+        }
+
+        applyFilters();
+      });
 
       if (studySpotFilterButton instanceof HTMLButtonElement) {
         studySpotFilterButton.addEventListener("click", () => {
           recommendedStudySpotOnly = !recommendedStudySpotOnly;
           applyFilters();
+        });
+      }
+
+      if (citySelect instanceof HTMLSelectElement) {
+        const initialOption = Array.from(citySelect.options).find(
+          (option) => option.dataset.cityId === currentCityId,
+        );
+        if (initialOption) {
+          citySelect.value = initialOption.value;
+
+          if (cityLabel instanceof HTMLElement) {
+            cityLabel.textContent = initialOption.textContent?.trim() ?? "";
+          }
+        }
+
+        const cityDataCache = new Map([
+          [
+            currentCityId,
+            Promise.resolve({
+              id: currentCityId,
+              center,
+              initialBounds,
+              shops,
+            }),
+          ],
+        ]);
+        let cityTransitionId = 0;
+
+        const normalizePath = (path) => path.replace(/\/+$/, "") || "/";
+        const getOptionForPath = (path) =>
+          Array.from(citySelect.options).find(
+            (option) =>
+              normalizePath(new URL(option.value, window.location.origin).pathname) === path,
+          );
+        const loadCityData = (option) => {
+          const cityId = option.dataset.cityId;
+          const dataHref = option.dataset.dataHref;
+
+          if (!cityId || !dataHref) {
+            return Promise.reject(new Error("Missing coffee city data URL"));
+          }
+
+          const cachedCity = cityDataCache.get(cityId);
+          if (cachedCity) return cachedCity;
+
+          const cityRequest = fetch(dataHref, {
+            headers: { Accept: "application/json" },
+          })
+            .then((response) => {
+              if (!response.ok) {
+                throw new Error(`Unable to load coffee city (${response.status})`);
+              }
+
+              return response.json();
+            })
+            .then((city) => {
+              if (
+                city?.id !== cityId ||
+                !Array.isArray(city.center) ||
+                !Array.isArray(city.shops)
+              ) {
+                throw new Error("Invalid coffee city data");
+              }
+
+              return city;
+            })
+            .catch((error) => {
+              cityDataCache.delete(cityId);
+              throw error;
+            });
+
+          cityDataCache.set(cityId, cityRequest);
+          return cityRequest;
+        };
+        const moveToCity = async (
+          targetCenter,
+          targetInitialBounds,
+          reducedMotion,
+          transitionId,
+        ) => {
+          const padding = getPadding();
+          const bounds = toLeafletBounds(getResponsiveBounds(targetCenter, targetInitialBounds));
+
+          map.stop();
+
+          if (reducedMotion) {
+            map.fitBounds(bounds, {
+              paddingTopLeft: [padding.left, padding.top],
+              paddingBottomRight: [padding.right, padding.bottom],
+              maxZoom: getInitialViewMaxZoom(),
+              animate: false,
+            });
+            return;
+          }
+
+          await new Promise((resolve) => window.setTimeout(resolve, 170));
+          if (transitionId !== cityTransitionId) return;
+
+          await new Promise((resolve, reject) => {
+            let fallbackTimer;
+            const finish = () => {
+              window.clearTimeout(fallbackTimer);
+              map.off("moveend", finish);
+              resolve();
+            };
+
+            fallbackTimer = window.setTimeout(finish, 1900);
+            map.once("moveend", finish);
+
+            try {
+              map.flyToBounds(bounds, {
+                paddingTopLeft: [padding.left, padding.top],
+                paddingBottomRight: [padding.right, padding.bottom],
+                maxZoom: getInitialViewMaxZoom(),
+                duration: 1.05,
+                easeLinearity: 0.3,
+              });
+            } catch (error) {
+              window.clearTimeout(fallbackTimer);
+              map.off("moveend", finish);
+              reject(error);
+            }
+          });
+        };
+        const transitionToCity = async (option, updateHistory) => {
+          const transitionId = ++cityTransitionId;
+          const destinationHref = option.value;
+          const destinationCityId = option.dataset.cityId;
+
+          if (!destinationHref || !destinationCityId) return;
+
+          if (destinationCityId === currentCityId) {
+            map.stop();
+            fitToInitialBounds(0);
+            citySelect.value = destinationHref;
+            citySelect.disabled = false;
+            root.classList.remove("is-city-transitioning");
+
+            if (cityLabel instanceof HTMLElement) {
+              cityLabel.textContent = option.textContent?.trim() ?? "";
+            }
+
+            document.title = option.dataset.pageTitle ?? document.title;
+            return;
+          }
+
+          const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+          let destinationCenter;
+          let destinationBounds;
+
+          try {
+            destinationCenter = JSON.parse(option.dataset.center ?? "null");
+            destinationBounds = JSON.parse(option.dataset.initialBounds ?? "null");
+          } catch {
+            window.location.assign(destinationHref);
+            return;
+          }
+
+          if (!Array.isArray(destinationCenter) || destinationCenter.length !== 2) {
+            window.location.assign(destinationHref);
+            return;
+          }
+
+          citySelect.disabled = true;
+          root.classList.add("is-city-transitioning");
+
+          if (cityLabel instanceof HTMLElement) {
+            cityLabel.textContent = option.textContent?.trim() ?? "";
+          }
+
+          try {
+            const [city] = await Promise.all([
+              loadCityData(option),
+              moveToCity(destinationCenter, destinationBounds, reducedMotion, transitionId),
+            ]);
+
+            if (transitionId !== cityTransitionId) return;
+
+            applyCityData(city);
+            citySelect.value = destinationHref;
+            document.title = option.dataset.pageTitle ?? document.title;
+
+            if (updateHistory) {
+              window.history.pushState({ coffeeCityId: city.id }, "", destinationHref);
+            }
+
+            await new Promise((resolve) => window.requestAnimationFrame(resolve));
+          } catch {
+            if (transitionId === cityTransitionId) {
+              window.location.assign(destinationHref);
+            }
+            return;
+          }
+
+          if (transitionId === cityTransitionId) {
+            citySelect.disabled = false;
+            root.classList.remove("is-city-transitioning");
+          }
+        };
+        const syncCityToLocation = () => {
+          const option = getOptionForPath(normalizePath(window.location.pathname));
+          if (!option) return;
+
+          citySelect.value = option.value;
+          void transitionToCity(option, false);
+        };
+
+        citySelect.addEventListener("change", () => {
+          const option = citySelect.selectedOptions[0];
+          if (option) void transitionToCity(option, true);
+        });
+        window.addEventListener("popstate", syncCityToLocation);
+        window.addEventListener("pageshow", (event) => {
+          if (event.persisted) syncCityToLocation();
         });
       }
 
@@ -1325,11 +1761,14 @@ const sortedShops = [...shops].sort((left, right) => left.name.localeCompare(rig
         map.invalidateSize();
         syncMarkerScale();
       });
-      window.addEventListener("pagehide", () => {
-        resizeObserver.disconnect();
+      window.addEventListener("pagehide", (event) => {
         window.clearTimeout(pinchResetTimer ?? undefined);
         window.clearTimeout(trackpadWheelResetTimer ?? undefined);
-        map.remove();
+
+        if (!event.persisted) {
+          resizeObserver.disconnect();
+          map.remove();
+        }
       });
 
       map.whenReady(() => {
@@ -1562,12 +2001,94 @@ const sortedShops = [...shops].sort((left, right) => left.name.localeCompare(rig
     color: #666;
     font-size: 0.8rem;
     line-height: 1.35;
+    transition:
+      opacity 180ms ease,
+      transform 180ms ease;
+  }
+
+  .coffee-map-city-picker {
+    margin: 0;
+  }
+
+  .coffee-map-city-picker__field {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    max-width: 100%;
+    min-height: 2.9rem;
+    border-radius: 5px;
+    background: transparent;
+  }
+
+  .coffee-map-city-picker__field::after {
+    content: "";
+    position: relative;
+    flex: 0 0 auto;
+    width: 0.5rem;
+    height: 0.5rem;
+    margin-right: 0.2rem;
+    border-right: 2px solid #555;
+    border-bottom: 2px solid #555;
+    pointer-events: none;
+    transform: translateY(-0.12rem) rotate(45deg);
+  }
+
+  .coffee-map-city-picker__label {
+    color: #333;
+    font-size: clamp(1.35rem, 2.2vw, 1.65rem);
+    font-weight: 800;
+    line-height: 1.05;
+    -webkit-text-stroke: 0.15px currentColor;
+    text-decoration-line: underline;
+    text-decoration-color: transparent;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.13em;
+    transition: text-decoration-color 180ms ease;
+    white-space: nowrap;
+  }
+
+  .coffee-map-city-picker__field:hover .coffee-map-city-picker__label {
+    text-decoration-color: currentColor;
+  }
+
+  .coffee-map-city-picker select {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    border: 0;
+    border-radius: inherit;
+    background: transparent;
+    cursor: pointer;
+    opacity: 0;
+  }
+
+  .coffee-map-city-picker__field:focus-within {
+    outline: 2px solid #777;
+    outline-offset: 2px;
+  }
+
+  .coffee-map-sidebar__empty {
+    margin: 0;
+    padding: 0.9rem 0.15rem;
+    color: #666;
+    font-size: 0.9rem;
   }
 
   .coffee-map-sidebar__filters {
     display: grid;
     gap: 0.85rem;
     padding: 0 0.15rem;
+    transition:
+      opacity 180ms ease,
+      transform 180ms ease;
+  }
+
+  .coffee-map-sidebar__filters[hidden],
+  .coffee-map-filter-group[hidden] {
+    display: none;
   }
 
   .coffee-map-filter-group {
@@ -1759,6 +2280,17 @@ const sortedShops = [...shops].sort((left, right) => left.name.localeCompare(rig
     padding-right: var(--shop-list-inline-gap);
     padding-bottom: 0.2rem;
     scrollbar-gutter: stable;
+    transition:
+      opacity 180ms ease,
+      transform 180ms ease;
+  }
+
+  .coffee-map-section.is-city-transitioning .coffee-map-sidebar__summary,
+  .coffee-map-section.is-city-transitioning .coffee-map-sidebar__filters,
+  .coffee-map-section.is-city-transitioning .coffee-map-sidebar__list {
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(0.35rem);
   }
 
   .coffee-shop-item {
@@ -1917,8 +2449,15 @@ const sortedShops = [...shops].sort((left, right) => left.name.localeCompare(rig
     cursor: pointer;
     transform: scale(calc(var(--marker-zoom-scale) * var(--marker-interaction-scale)));
     transform-origin: center;
-    transition: transform 250ms cubic-bezier(0, 0, 0.25, 1);
-    will-change: transform;
+    transition:
+      opacity 180ms ease,
+      transform 250ms cubic-bezier(0, 0, 0.25, 1);
+    will-change: opacity, transform;
+  }
+
+  .coffee-map-section.is-city-transitioning .coffee-marker {
+    opacity: 0;
+    pointer-events: none;
   }
 
   .coffee-marker:hover,
@@ -2259,8 +2798,16 @@ const sortedShops = [...shops].sort((left, right) => left.name.localeCompare(rig
       padding-top: 0;
     }
 
-    .coffee-map-sidebar__header h2 {
+    .coffee-map-sidebar__header h2:not(.sr-only) {
       display: none;
+    }
+
+    .coffee-map-city-picker__label {
+      font-size: 1.2rem;
+    }
+
+    .coffee-map-city-picker__field {
+      min-height: 2.1rem;
     }
 
     .coffee-map-sidebar__summary {
@@ -2287,6 +2834,15 @@ const sortedShops = [...shops].sort((left, right) => left.name.localeCompare(rig
     .coffee-marker {
       width: 2.65rem;
       height: 2.65rem;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .coffee-map-sidebar__summary,
+    .coffee-map-sidebar__filters,
+    .coffee-map-sidebar__list,
+    .coffee-marker {
+      transition: none;
     }
   }
 </style>
