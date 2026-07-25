@@ -3,16 +3,28 @@
     "id": "san-francisco",
     "label": "San Francisco, California",
     "shortLabel": "SF",
-    "center": [-122.433, 37.764],
+    "center": [
+      -122.433,
+      37.764
+    ],
     "initialBounds": [
-      [-122.4326, 37.78215],
-      [-122.4254, 37.78785]
+      [
+        -122.4326,
+        37.78215
+      ],
+      [
+        -122.4254,
+        37.78785
+      ]
     ],
     "shops": [
       {
         "id": "capital-one-cafe",
         "name": "Capital One Cafe",
-        "coordinates": [-122.403832, 37.78877],
+        "coordinates": [
+          -122.403832,
+          37.78877
+        ],
         "description": "Capital One!",
         "recommendedStudySpot": true,
         "accent": "#8b6f60",
@@ -27,15 +39,25 @@
           "seating": true,
           "hours": [
             {
-              "days": ["Sun"],
+              "days": [
+                "Sun"
+              ],
               "label": "9 AM - 5 PM"
             },
             {
-              "days": ["Mon", "Tue", "Wed", "Thu", "Fri"],
+              "days": [
+                "Mon",
+                "Tue",
+                "Wed",
+                "Thu",
+                "Fri"
+              ],
               "label": "7 AM - 6 PM"
             },
             {
-              "days": ["Sat"],
+              "days": [
+                "Sat"
+              ],
               "label": "9 AM - 5 PM"
             }
           ]
@@ -44,7 +66,10 @@
       {
         "id": "corgi-cafe",
         "name": "Corgi Cafe",
-        "coordinates": [-122.404462, 37.790525],
+        "coordinates": [
+          -122.404462,
+          37.790525
+        ],
         "description": "24/7 cafe",
         "accent": "#8b6f60",
         "logoPath": "/images/coffee-logos/corgi-cafe.png",
@@ -58,7 +83,15 @@
           "seating": true,
           "hours": [
             {
-              "days": ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+              "days": [
+                "Sun",
+                "Mon",
+                "Tue",
+                "Wed",
+                "Thu",
+                "Fri",
+                "Sat"
+              ],
               "label": "12 AM - 12 AM"
             }
           ]
@@ -67,7 +100,10 @@
       {
         "id": "blue-bottle-pac-heights",
         "name": "Blue Bottle",
-        "coordinates": [-122.4346, 37.7926],
+        "coordinates": [
+          -122.4346,
+          37.7926
+        ],
         "description": "studied here a few times",
         "recommendedStudySpot": true,
         "accent": "#8b6f60",
@@ -82,7 +118,15 @@
           "seating": true,
           "hours": [
             {
-              "days": ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+              "days": [
+                "Sun",
+                "Mon",
+                "Tue",
+                "Wed",
+                "Thu",
+                "Fri",
+                "Sat"
+              ],
               "label": "6 AM - 7 PM"
             }
           ]
@@ -91,7 +135,10 @@
       {
         "id": "blue-bottle-mission-bay",
         "name": "Blue Bottle",
-        "coordinates": [-122.391072, 37.771107],
+        "coordinates": [
+          -122.391072,
+          37.771107
+        ],
         "description": "good spot if you need to go to chase center",
         "recommendedStudySpot": true,
         "accent": "#8b6f60",
@@ -106,7 +153,15 @@
           "seating": true,
           "hours": [
             {
-              "days": ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+              "days": [
+                "Sun",
+                "Mon",
+                "Tue",
+                "Wed",
+                "Thu",
+                "Fri",
+                "Sat"
+              ],
               "label": "6:30 AM – 5:30 PM"
             }
           ]
@@ -115,7 +170,10 @@
       {
         "id": "jane-on-third",
         "name": "Jane on Third",
-        "coordinates": [-122.401038, 37.785719],
+        "coordinates": [
+          -122.401038,
+          37.785719
+        ],
         "description": "Jane Street reference",
         "recommendedStudySpot": true,
         "accent": "#8b6f60",
@@ -129,15 +187,25 @@
           "seating": true,
           "hours": [
             {
-              "days": ["Sun", "Mon", "Tue", "Wed"],
+              "days": [
+                "Sun",
+                "Mon",
+                "Tue",
+                "Wed"
+              ],
               "label": "9 AM - 6 PM"
             },
             {
-              "days": ["Thu"],
+              "days": [
+                "Thu"
+              ],
               "label": "9 AM - 8 PM"
             },
             {
-              "days": ["Fri", "Sat"],
+              "days": [
+                "Fri",
+                "Sat"
+              ],
               "label": "9 AM - 6 PM"
             }
           ]
@@ -146,7 +214,10 @@
       {
         "id": "the-mill",
         "name": "The Mill",
-        "coordinates": [-122.437021, 37.776442],
+        "coordinates": [
+          -122.437021,
+          37.776442
+        ],
         "description": "really like their almond croissants",
         "accent": "#8b6f60",
         "logoPath": "/images/coffee-logos/the-mill.png",
@@ -158,7 +229,15 @@
           "seating": true,
           "hours": [
             {
-              "days": ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+              "days": [
+                "Sun",
+                "Mon",
+                "Tue",
+                "Wed",
+                "Thu",
+                "Fri",
+                "Sat"
+              ],
               "label": "7 AM - 5 PM"
             }
           ]
@@ -167,7 +246,10 @@
       {
         "id": "la-boulangerie",
         "name": "La Boulangerie",
-        "coordinates": [-122.449231, 37.765992],
+        "coordinates": [
+          -122.449231,
+          37.765992
+        ],
         "description": "really good croissants",
         "recommendedStudySpot": true,
         "accent": "#8b6f60",
@@ -181,15 +263,25 @@
           "seating": true,
           "hours": [
             {
-              "days": ["Sun"],
+              "days": [
+                "Sun"
+              ],
               "label": "7 AM – 4 PM"
             },
             {
-              "days": ["Mon", "Tue", "Wed", "Thu", "Fri"],
+              "days": [
+                "Mon",
+                "Tue",
+                "Wed",
+                "Thu",
+                "Fri"
+              ],
               "label": "6:30 AM – 4:30 PM"
             },
             {
-              "days": ["Sat"],
+              "days": [
+                "Sat"
+              ],
               "label": "7 AM – 4 PM"
             }
           ]
@@ -198,7 +290,10 @@
       {
         "id": "chestnut-street-coffee-roastery",
         "name": "Chestnut Street Coffee Roastery",
-        "coordinates": [-122.438561, 37.800238],
+        "coordinates": [
+          -122.438561,
+          37.800238
+        ],
         "description": "closes early :(",
         "accent": "#8b6f60",
         "logoPath": "/images/coffee-logos/chestnut-street-coffee-roastery.jpg",
@@ -212,7 +307,15 @@
           "seating": true,
           "hours": [
             {
-              "days": ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+              "days": [
+                "Sun",
+                "Mon",
+                "Tue",
+                "Wed",
+                "Thu",
+                "Fri",
+                "Sat"
+              ],
               "label": "6:30 AM - 2 PM"
             }
           ]
@@ -221,7 +324,10 @@
       {
         "id": "caffe-central",
         "name": "Caffè Central",
-        "coordinates": [-122.458, 37.7636],
+        "coordinates": [
+          -122.458,
+          37.7636
+        ],
         "description": "inside ucsf! pretty good study spot",
         "recommendedStudySpot": true,
         "accent": "#8b6f60",
@@ -234,15 +340,25 @@
           "seating": true,
           "hours": [
             {
-              "days": ["Sun"],
+              "days": [
+                "Sun"
+              ],
               "label": "Closed"
             },
             {
-              "days": ["Mon", "Tue", "Wed", "Thu", "Fri"],
+              "days": [
+                "Mon",
+                "Tue",
+                "Wed",
+                "Thu",
+                "Fri"
+              ],
               "label": "7:30 AM - 3 PM"
             },
             {
-              "days": ["Sat"],
+              "days": [
+                "Sat"
+              ],
               "label": "Closed"
             }
           ]
@@ -251,7 +367,10 @@
       {
         "id": "xox-truffles",
         "name": "XOX Truffles",
-        "coordinates": [-122.412065, 37.801775],
+        "coordinates": [
+          -122.412065,
+          37.801775
+        ],
         "description": "Coffee came with a free truffle :)",
         "accent": "#8b6f60",
         "logoPath": "/images/coffee-logos/xox-truffles.png",
@@ -262,15 +381,25 @@
         "details": {
           "hours": [
             {
-              "days": ["Sun", "Mon", "Tue", "Wed"],
+              "days": [
+                "Sun",
+                "Mon",
+                "Tue",
+                "Wed"
+              ],
               "label": "12 PM – 7 PM"
             },
             {
-              "days": ["Thu"],
+              "days": [
+                "Thu"
+              ],
               "label": "Closed"
             },
             {
-              "days": ["Fri", "Sat"],
+              "days": [
+                "Fri",
+                "Sat"
+              ],
               "label": "12 PM – 7 PM"
             }
           ]
@@ -279,7 +408,10 @@
       {
         "id": "cafe-reveille",
         "name": "Café Réveille",
-        "coordinates": [-122.432072, 37.771057],
+        "coordinates": [
+          -122.432072,
+          37.771057
+        ],
         "description": "one of the first coffee shops I went to in SF!",
         "recommendedStudySpot": true,
         "accent": "#8b6f60",
@@ -293,7 +425,15 @@
           "seating": true,
           "hours": [
             {
-              "days": ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+              "days": [
+                "Sun",
+                "Mon",
+                "Tue",
+                "Wed",
+                "Thu",
+                "Fri",
+                "Sat"
+              ],
               "label": "7 AM – 7:30 PM"
             }
           ]
@@ -302,7 +442,10 @@
       {
         "id": "arsicault-bakery-civic-center",
         "name": "Arsicault Bakery",
-        "coordinates": [-122.411205, 37.781321],
+        "coordinates": [
+          -122.411205,
+          37.781321
+        ],
         "description": "a classic",
         "accent": "#8b6f60",
         "logoPath": "/images/coffee-logos/arsicault-bakery-civic-center.webp",
@@ -314,7 +457,15 @@
           "seating": true,
           "hours": [
             {
-              "days": ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+              "days": [
+                "Sun",
+                "Mon",
+                "Tue",
+                "Wed",
+                "Thu",
+                "Fri",
+                "Sat"
+              ],
               "label": "8 AM – 3 PM"
             }
           ]
@@ -323,7 +474,10 @@
       {
         "id": "il-parco",
         "name": "Il Parco",
-        "coordinates": [-122.459641, 37.801556],
+        "coordinates": [
+          -122.459641,
+          37.801556
+        ],
         "description": "expensive but love the environment",
         "accent": "#8b6f60",
         "logoPath": "/images/coffee-logos/il-parco.png",
@@ -335,7 +489,15 @@
           "seating": true,
           "hours": [
             {
-              "days": ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+              "days": [
+                "Sun",
+                "Mon",
+                "Tue",
+                "Wed",
+                "Thu",
+                "Fri",
+                "Sat"
+              ],
               "label": "8 AM–8 PM"
             }
           ]
@@ -344,7 +506,10 @@
       {
         "id": "the-coffee-berry",
         "name": "The Coffee Berry",
-        "coordinates": [-122.427997, 37.800079],
+        "coordinates": [
+          -122.427997,
+          37.800079
+        ],
         "description": "studied here with a friend",
         "accent": "#8b6f60",
         "logoPath": "/images/coffee-logos/the-coffee-berry.png",
@@ -356,7 +521,15 @@
           "seating": true,
           "hours": [
             {
-              "days": ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+              "days": [
+                "Sun",
+                "Mon",
+                "Tue",
+                "Wed",
+                "Thu",
+                "Fri",
+                "Sat"
+              ],
               "label": "7 AM – 6 PM"
             }
           ]
@@ -365,7 +538,10 @@
       {
         "id": "stardust-coffee-house",
         "name": "Stardust Coffee House",
-        "coordinates": [-121.931081, 37.287676],
+        "coordinates": [
+          -121.931081,
+          37.287676
+        ],
         "description": "used to study here all the time\nfriend met his girlfriend here",
         "recommendedStudySpot": true,
         "accent": "#8b6f60",
@@ -380,15 +556,25 @@
           "seating": true,
           "hours": [
             {
-              "days": ["Sun"],
+              "days": [
+                "Sun"
+              ],
               "label": "9 AM – 6 PM"
             },
             {
-              "days": ["Mon", "Tue", "Wed", "Thu", "Fri"],
+              "days": [
+                "Mon",
+                "Tue",
+                "Wed",
+                "Thu",
+                "Fri"
+              ],
               "label": "8 AM – 6 PM"
             },
             {
-              "days": ["Sat"],
+              "days": [
+                "Sat"
+              ],
               "label": "9 AM – 6 PM"
             }
           ]
@@ -397,7 +583,10 @@
       {
         "id": "paper-son-coffee",
         "name": "Paper Son Coffee",
-        "coordinates": [-122.388673, 37.760998],
+        "coordinates": [
+          -122.388673,
+          37.760998
+        ],
         "description": "really good ube bread\nclose to YC",
         "accent": "#8b6f60",
         "logoPath": "/images/coffee-logos/paper-son-coffee.jpeg",
@@ -408,7 +597,15 @@
         "details": {
           "hours": [
             {
-              "days": ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+              "days": [
+                "Sun",
+                "Mon",
+                "Tue",
+                "Wed",
+                "Thu",
+                "Fri",
+                "Sat"
+              ],
               "label": "8 AM – 2 PM"
             }
           ]
@@ -417,7 +614,10 @@
       {
         "id": "juniper",
         "name": "Juniper",
-        "coordinates": [-122.421233, 37.790944],
+        "coordinates": [
+          -122.421233,
+          37.790944
+        ],
         "description": "chill spot to do work in",
         "accent": "#8b6f60",
         "logoPath": "/images/coffee-logos/juniper.jpg",
@@ -429,7 +629,15 @@
           "seating": true,
           "hours": [
             {
-              "days": ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+              "days": [
+                "Sun",
+                "Mon",
+                "Tue",
+                "Wed",
+                "Thu",
+                "Fri",
+                "Sat"
+              ],
               "label": "7:30 AM – 3 PM"
             }
           ]
@@ -438,7 +646,10 @@
       {
         "id": "cafe-reveille-polk-street",
         "name": "Cafe Réveille",
-        "coordinates": [-122.42163, 37.795116],
+        "coordinates": [
+          -122.42163,
+          37.795116
+        ],
         "description": "love this spot",
         "recommendedStudySpot": true,
         "accent": "#8b6f60",
@@ -453,7 +664,15 @@
           "seating": true,
           "hours": [
             {
-              "days": ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+              "days": [
+                "Sun",
+                "Mon",
+                "Tue",
+                "Wed",
+                "Thu",
+                "Fri",
+                "Sat"
+              ],
               "label": "7:30 AM – 5 PM"
             }
           ]
@@ -462,7 +681,10 @@
       {
         "id": "la-boulangerie-hayes-valley",
         "name": "La Boulangerie",
-        "coordinates": [-122.424196, 37.776635],
+        "coordinates": [
+          -122.424196,
+          37.776635
+        ],
         "description": "hee hee like michael jackson",
         "recommendedStudySpot": true,
         "accent": "#8b6f60",
@@ -477,15 +699,25 @@
           "seating": true,
           "hours": [
             {
-              "days": ["Sun"],
+              "days": [
+                "Sun"
+              ],
               "label": "7 AM – 5 PM"
             },
             {
-              "days": ["Mon", "Tue", "Wed", "Thu", "Fri"],
+              "days": [
+                "Mon",
+                "Tue",
+                "Wed",
+                "Thu",
+                "Fri"
+              ],
               "label": "6:30 AM – 5 PM"
             },
             {
-              "days": ["Sat"],
+              "days": [
+                "Sat"
+              ],
               "label": "7 AM – 5 PM"
             }
           ]
@@ -494,7 +726,10 @@
       {
         "id": "jane-on-filmore",
         "name": "Jane on Filmore",
-        "coordinates": [-122.43387, 37.788776],
+        "coordinates": [
+          -122.43387,
+          37.788776
+        ],
         "description": "gave free smarties :)",
         "accent": "#8b6f60",
         "logoPath": "/images/coffee-logos/jane-on-filmore.png",
@@ -507,15 +742,25 @@
           "seating": true,
           "hours": [
             {
-              "days": ["Sun"],
+              "days": [
+                "Sun"
+              ],
               "label": "8 AM – 5 PM"
             },
             {
-              "days": ["Mon", "Tue", "Wed", "Thu", "Fri"],
+              "days": [
+                "Mon",
+                "Tue",
+                "Wed",
+                "Thu",
+                "Fri"
+              ],
               "label": "7 AM – 5 PM"
             },
             {
-              "days": ["Sat"],
+              "days": [
+                "Sat"
+              ],
               "label": "8 AM – 5 PM"
             }
           ]
@@ -524,7 +769,10 @@
       {
         "id": "heyma-yemeni-coffee",
         "name": "Heyma Yemeni Coffee",
-        "coordinates": [-122.411216, 37.774709],
+        "coordinates": [
+          -122.411216,
+          37.774709
+        ],
         "description": "diamond in the rough",
         "recommendedStudySpot": true,
         "accent": "#8b6f60",
@@ -539,11 +787,20 @@
           "seating": true,
           "hours": [
             {
-              "days": ["Sun", "Mon", "Tue", "Wed", "Thu"],
+              "days": [
+                "Sun",
+                "Mon",
+                "Tue",
+                "Wed",
+                "Thu"
+              ],
               "label": "7 AM – 11:30 PM"
             },
             {
-              "days": ["Fri", "Sat"],
+              "days": [
+                "Fri",
+                "Sat"
+              ],
               "label": "7 AM – 12:30 AM"
             }
           ]
@@ -552,7 +809,10 @@
       {
         "id": "rise-grind-coffee",
         "name": "Rise & Grind Coffee",
-        "coordinates": [-122.466212, 37.773197],
+        "coordinates": [
+          -122.466212,
+          37.773197
+        ],
         "description": "closes sooo early",
         "accent": "#8b6f60",
         "logoPath": "/images/coffee-logos/rise-grind-coffee.png",
@@ -563,15 +823,25 @@
         "details": {
           "hours": [
             {
-              "days": ["Sun"],
+              "days": [
+                "Sun"
+              ],
               "label": "8 AM – 3 PM"
             },
             {
-              "days": ["Mon", "Tue", "Wed", "Thu", "Fri"],
+              "days": [
+                "Mon",
+                "Tue",
+                "Wed",
+                "Thu",
+                "Fri"
+              ],
               "label": "8 AM – 1 PM"
             },
             {
-              "days": ["Sat"],
+              "days": [
+                "Sat"
+              ],
               "label": "8 AM – 3 PM"
             }
           ]
@@ -580,7 +850,10 @@
       {
         "id": "pixlcat-coffee",
         "name": "Pixlcat Coffee",
-        "coordinates": [-122.464873, 37.782799],
+        "coordinates": [
+          -122.464873,
+          37.782799
+        ],
         "description": "high personality shop but the drinks were way too sweet",
         "accent": "#8b6f60",
         "logoPath": "/images/coffee-logos/pixlcat-coffee.png",
@@ -592,15 +865,25 @@
           "seating": true,
           "hours": [
             {
-              "days": ["Sun"],
+              "days": [
+                "Sun"
+              ],
               "label": "7 AM – 5 PM"
             },
             {
-              "days": ["Mon", "Tue", "Wed", "Thu", "Fri"],
+              "days": [
+                "Mon",
+                "Tue",
+                "Wed",
+                "Thu",
+                "Fri"
+              ],
               "label": "7 AM – 4 PM"
             },
             {
-              "days": ["Sat"],
+              "days": [
+                "Sat"
+              ],
               "label": "7 AM – 5 PM"
             }
           ]
@@ -609,7 +892,10 @@
       {
         "id": "home-coffee-roasters",
         "name": "Home Coffee Roasters",
-        "coordinates": [-122.480992, 37.782321],
+        "coordinates": [
+          -122.480992,
+          37.782321
+        ],
         "description": "good study spot in Richmond",
         "recommendedStudySpot": true,
         "accent": "#8b6f60",
@@ -623,15 +909,25 @@
           "seating": true,
           "hours": [
             {
-              "days": ["Sun"],
+              "days": [
+                "Sun"
+              ],
               "label": "8 AM – 4 PM"
             },
             {
-              "days": ["Mon", "Tue", "Wed", "Thu", "Fri"],
+              "days": [
+                "Mon",
+                "Tue",
+                "Wed",
+                "Thu",
+                "Fri"
+              ],
               "label": "7:30 AM – 4 PM"
             },
             {
-              "days": ["Sat"],
+              "days": [
+                "Sat"
+              ],
               "label": "8 AM – 4 PM"
             }
           ]
@@ -640,7 +936,10 @@
       {
         "id": "andytown-coffee-roasters-ocean-beach",
         "name": "Andytown Coffee Roasters",
-        "coordinates": [-122.510694, 37.772624],
+        "coordinates": [
+          -122.510694,
+          37.772624
+        ],
         "description": "beach themed",
         "accent": "#8b6f60",
         "logoPath": "/images/coffee-logos/andytown-coffee-roasters-ocean-beach.png",
@@ -652,7 +951,15 @@
           "seating": true,
           "hours": [
             {
-              "days": ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+              "days": [
+                "Sun",
+                "Mon",
+                "Tue",
+                "Wed",
+                "Thu",
+                "Fri",
+                "Sat"
+              ],
               "label": "7 AM – 5 PM"
             }
           ]
@@ -661,7 +968,10 @@
       {
         "id": "parachute-bakery",
         "name": "Parachute Bakery",
-        "coordinates": [-122.393972, 37.796102],
+        "coordinates": [
+          -122.393972,
+          37.796102
+        ],
         "description": "favorite in the ferry building",
         "accent": "#8b6f60",
         "logoPath": "/images/coffee-logos/parachute-bakery.webp",
@@ -672,7 +982,15 @@
         "details": {
           "hours": [
             {
-              "days": ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+              "days": [
+                "Sun",
+                "Mon",
+                "Tue",
+                "Wed",
+                "Thu",
+                "Fri",
+                "Sat"
+              ],
               "label": "8 AM – 4 PM"
             }
           ]
@@ -681,7 +999,10 @@
       {
         "id": "sweet-glory",
         "name": "Sweet Glory",
-        "coordinates": [-122.466077, 37.76338],
+        "coordinates": [
+          -122.466077,
+          37.76338
+        ],
         "description": "great date spot",
         "accent": "#8b6f60",
         "logoPath": "/images/coffee-logos/sweet-glory.webp",
@@ -694,27 +1015,40 @@
           "seating": true,
           "hours": [
             {
-              "days": ["Sun"],
+              "days": [
+                "Sun"
+              ],
               "label": "11 AM – 6 PM"
             },
             {
-              "days": ["Mon"],
+              "days": [
+                "Mon"
+              ],
               "label": "12 – 6 PM"
             },
             {
-              "days": ["Tue"],
+              "days": [
+                "Tue"
+              ],
               "label": "Closed"
             },
             {
-              "days": ["Wed", "Thu"],
+              "days": [
+                "Wed",
+                "Thu"
+              ],
               "label": "12–6 PM"
             },
             {
-              "days": ["Fri"],
+              "days": [
+                "Fri"
+              ],
               "label": "11 AM – 6 PM"
             },
             {
-              "days": ["Sat"],
+              "days": [
+                "Sat"
+              ],
               "label": "11 AM – 9 PM"
             }
           ]
@@ -723,7 +1057,10 @@
       {
         "id": "barista-coffee-brunch",
         "name": "Barista Coffee & Brunch",
-        "coordinates": [-122.447275, 37.787989],
+        "coordinates": [
+          -122.447275,
+          37.787989
+        ],
         "description": "very pleasant area",
         "accent": "#8b6f60",
         "logoPath": "/images/coffee-logos/barista-coffee-brunch.png",
@@ -736,15 +1073,25 @@
           "seating": true,
           "hours": [
             {
-              "days": ["Sun"],
+              "days": [
+                "Sun"
+              ],
               "label": "8 AM – 5 PM"
             },
             {
-              "days": ["Mon", "Tue", "Wed", "Thu", "Fri"],
+              "days": [
+                "Mon",
+                "Tue",
+                "Wed",
+                "Thu",
+                "Fri"
+              ],
               "label": "7 AM – 5 PM"
             },
             {
-              "days": ["Sat"],
+              "days": [
+                "Sat"
+              ],
               "label": "8 AM – 5 PM"
             }
           ]
@@ -753,7 +1100,10 @@
       {
         "id": "arsicault-bakery-richmond",
         "name": "Arsicault Bakery",
-        "coordinates": [-122.459306, 37.783426],
+        "coordinates": [
+          -122.459306,
+          37.783426
+        ],
         "description": "good luck with the line 🫡",
         "accent": "#8b6f60",
         "logoPath": "/images/coffee-logos/arsicault-bakery-richmond.webp",
@@ -764,15 +1114,24 @@
         "details": {
           "hours": [
             {
-              "days": ["Sun"],
+              "days": [
+                "Sun"
+              ],
               "label": "8 AM – 3:30 PM"
             },
             {
-              "days": ["Mon", "Tue", "Wed", "Thu"],
+              "days": [
+                "Mon",
+                "Tue",
+                "Wed",
+                "Thu"
+              ],
               "label": "8 AM – 3 PM"
             },
             {
-              "days": ["Sat"],
+              "days": [
+                "Sat"
+              ],
               "label": "8 AM – 3:30 PM"
             }
           ]
@@ -781,7 +1140,10 @@
       {
         "id": "fifty-fifty",
         "name": "fifty/fifty",
-        "coordinates": [-122.45302, 37.781584],
+        "coordinates": [
+          -122.45302,
+          37.781584
+        ],
         "description": "barista was super nice",
         "accent": "#8b6f60",
         "logoPath": "/images/coffee-logos/fifty-fifty.webp",
@@ -794,15 +1156,25 @@
           "seating": true,
           "hours": [
             {
-              "days": ["Sun"],
+              "days": [
+                "Sun"
+              ],
               "label": "8 AM – 4 PM"
             },
             {
-              "days": ["Mon", "Tue", "Wed", "Thu", "Fri"],
+              "days": [
+                "Mon",
+                "Tue",
+                "Wed",
+                "Thu",
+                "Fri"
+              ],
               "label": "7:30 AM – 4 PM"
             },
             {
-              "days": ["Sat"],
+              "days": [
+                "Sat"
+              ],
               "label": "8 AM – 4 PM"
             }
           ]
@@ -811,7 +1183,10 @@
       {
         "id": "b-patisserie",
         "name": "b. patisserie",
-        "coordinates": [-122.440878, 37.787848],
+        "coordinates": [
+          -122.440878,
+          37.787848
+        ],
         "description": "great place for coffee + patisseries",
         "accent": "#8b6f60",
         "logoPath": "/images/coffee-logos/b-patisserie.jpg",
@@ -823,19 +1198,30 @@
           "seating": true,
           "hours": [
             {
-              "days": ["Sun"],
+              "days": [
+                "Sun"
+              ],
               "label": "8 AM – 5 PM"
             },
             {
-              "days": ["Mon", "Tue"],
+              "days": [
+                "Mon",
+                "Tue"
+              ],
               "label": "Closed"
             },
             {
-              "days": ["Wed", "Thu", "Fri"],
+              "days": [
+                "Wed",
+                "Thu",
+                "Fri"
+              ],
               "label": "8 AM – 4 PM"
             },
             {
-              "days": ["Sat"],
+              "days": [
+                "Sat"
+              ],
               "label": "8 AM – 5 PM"
             }
           ]
@@ -844,7 +1230,10 @@
       {
         "id": "flywheel-coffee-roasters",
         "name": "Flywheel Coffee Roasters",
-        "coordinates": [-122.453458, 37.769684],
+        "coordinates": [
+          -122.453458,
+          37.769684
+        ],
         "description": "had warm coffee in a cold rainy day",
         "accent": "#8b6f60",
         "logoPath": "/images/coffee-logos/flywheel-coffee-roasters.png",
@@ -857,7 +1246,15 @@
           "seating": true,
           "hours": [
             {
-              "days": ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+              "days": [
+                "Sun",
+                "Mon",
+                "Tue",
+                "Wed",
+                "Thu",
+                "Fri",
+                "Sat"
+              ],
               "label": "7 AM – 6 PM"
             }
           ]
@@ -866,7 +1263,10 @@
       {
         "id": "jane-on-larkin",
         "name": "Jane on Larkin",
-        "coordinates": [-122.4174, 37.7839],
+        "coordinates": [
+          -122.4174,
+          37.7839
+        ],
         "description": "very welcoming",
         "accent": "#8b6f60",
         "logoPath": "/images/coffee-logos/jane-on-larkin.png",
@@ -878,7 +1278,15 @@
           "seating": true,
           "hours": [
             {
-              "days": ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+              "days": [
+                "Sun",
+                "Mon",
+                "Tue",
+                "Wed",
+                "Thu",
+                "Fri",
+                "Sat"
+              ],
               "label": "7 AM – 4 PM"
             }
           ]
@@ -887,7 +1295,10 @@
       {
         "id": "spro-coffee-lab",
         "name": "SPRO Coffee Lab",
-        "coordinates": [-122.4187, 37.7809],
+        "coordinates": [
+          -122.4187,
+          37.7809
+        ],
         "description": "lab made?? 🤔",
         "recommendedStudySpot": true,
         "accent": "#8b6f60",
@@ -901,15 +1312,25 @@
           "seating": true,
           "hours": [
             {
-              "days": ["Sun"],
+              "days": [
+                "Sun"
+              ],
               "label": "Closed"
             },
             {
-              "days": ["Mon", "Tue", "Wed", "Thu", "Fri"],
+              "days": [
+                "Mon",
+                "Tue",
+                "Wed",
+                "Thu",
+                "Fri"
+              ],
               "label": "7 AM – 4 PM"
             },
             {
-              "days": ["Sat"],
+              "days": [
+                "Sat"
+              ],
               "label": "Closed"
             }
           ]
@@ -918,7 +1339,10 @@
       {
         "id": "verve-coffee-roasters",
         "name": "Verve Coffee Roasters",
-        "coordinates": [-122.4311, 37.7664],
+        "coordinates": [
+          -122.4311,
+          37.7664
+        ],
         "description": "has the startup type of environment",
         "accent": "#8b6f60",
         "logoPath": "/images/coffee-logos/verve-coffee-roasters.jpeg",
@@ -930,15 +1354,25 @@
           "seating": true,
           "hours": [
             {
-              "days": ["Sun"],
+              "days": [
+                "Sun"
+              ],
               "label": "7 AM – 5:30 PM"
             },
             {
-              "days": ["Mon", "Tue", "Wed", "Thu", "Fri"],
+              "days": [
+                "Mon",
+                "Tue",
+                "Wed",
+                "Thu",
+                "Fri"
+              ],
               "label": "6:30 AM – 5 PM"
             },
             {
-              "days": ["Sat"],
+              "days": [
+                "Sat"
+              ],
               "label": "7 AM – 5:30 PM"
             }
           ]
@@ -947,7 +1381,10 @@
       {
         "id": "cafe-de-casa",
         "name": "Cafe de Casa",
-        "coordinates": [-122.4347, 37.762],
+        "coordinates": [
+          -122.4347,
+          37.762
+        ],
         "description": "absolutely incredible rosca de coco",
         "recommendedStudySpot": true,
         "accent": "#8b6f60",
@@ -962,11 +1399,20 @@
           "seating": true,
           "hours": [
             {
-              "days": ["Sun"],
+              "days": [
+                "Sun"
+              ],
               "label": "8 AM – 5 PM"
             },
             {
-              "days": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+              "days": [
+                "Mon",
+                "Tue",
+                "Wed",
+                "Thu",
+                "Fri",
+                "Sat"
+              ],
               "label": "8 AM – 6 PM"
             }
           ]
@@ -975,7 +1421,10 @@
       {
         "id": "artly-robot-coffee",
         "name": "Artly Robot Coffee",
-        "coordinates": [-122.411, 37.8109],
+        "coordinates": [
+          -122.411,
+          37.8109
+        ],
         "description": "they're replacing baristas with AI 😱😱",
         "accent": "#8b6f60",
         "logoPath": "/images/coffee-logos/artly-robot-coffee.png",
@@ -986,7 +1435,15 @@
         "details": {
           "hours": [
             {
-              "days": ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+              "days": [
+                "Sun",
+                "Mon",
+                "Tue",
+                "Wed",
+                "Thu",
+                "Fri",
+                "Sat"
+              ],
               "label": "10 AM – 7:30 PM"
             }
           ]
@@ -995,7 +1452,10 @@
       {
         "id": "abanico-coffee-roasters",
         "name": "Abanico Coffee Roasters",
-        "coordinates": [-122.419247, 37.763696],
+        "coordinates": [
+          -122.419247,
+          37.763696
+        ],
         "description": "very quiet when I studied here",
         "accent": "#8b6f60",
         "logoPath": "/images/coffee-logos/abanico-coffee-roasters.webp",
@@ -1007,15 +1467,25 @@
           "seating": true,
           "hours": [
             {
-              "days": ["Sun"],
+              "days": [
+                "Sun"
+              ],
               "label": "8 AM – 4 PM"
             },
             {
-              "days": ["Mon", "Tue", "Wed", "Thu", "Fri"],
+              "days": [
+                "Mon",
+                "Tue",
+                "Wed",
+                "Thu",
+                "Fri"
+              ],
               "label": "7:30 AM – 4 PM"
             },
             {
-              "days": ["Sat"],
+              "days": [
+                "Sat"
+              ],
               "label": "8 AM – 4 PM"
             }
           ]
@@ -1024,7 +1494,10 @@
       {
         "id": "tadaima",
         "name": "Tadaima",
-        "coordinates": [-122.418414, 37.758982],
+        "coordinates": [
+          -122.418414,
+          37.758982
+        ],
         "description": "i'm homee",
         "accent": "#8b6f60",
         "logoPath": "/images/coffee-logos/tadaima.png",
@@ -1036,15 +1509,25 @@
           "seating": true,
           "hours": [
             {
-              "days": ["Sun"],
+              "days": [
+                "Sun"
+              ],
               "label": "10 AM – 5:30 PM"
             },
             {
-              "days": ["Mon", "Tue", "Wed", "Thu"],
+              "days": [
+                "Mon",
+                "Tue",
+                "Wed",
+                "Thu"
+              ],
               "label": "11 AM – 4:30 PM"
             },
             {
-              "days": ["Fri", "Sat"],
+              "days": [
+                "Fri",
+                "Sat"
+              ],
               "label": "10 AM – 5:30 PM"
             }
           ]
@@ -1053,7 +1536,10 @@
       {
         "id": "sightglass-coffee",
         "name": "Sightglass Coffee",
-        "coordinates": [-122.410859, 37.759365],
+        "coordinates": [
+          -122.410859,
+          37.759365
+        ],
         "description": "good ambiance",
         "accent": "#8b6f60",
         "logoPath": "/images/coffee-logos/sightglass-coffee.png",
@@ -1065,15 +1551,25 @@
           "seating": true,
           "hours": [
             {
-              "days": ["Sun"],
+              "days": [
+                "Sun"
+              ],
               "label": "7 AM – 5 PM"
             },
             {
-              "days": ["Mon", "Tue", "Wed", "Thu", "Fri"],
+              "days": [
+                "Mon",
+                "Tue",
+                "Wed",
+                "Thu",
+                "Fri"
+              ],
               "label": "6:30 AM – 5 PM"
             },
             {
-              "days": ["Sat"],
+              "days": [
+                "Sat"
+              ],
               "label": "7 AM – 5 PM"
             }
           ]
@@ -1082,7 +1578,10 @@
       {
         "id": "ritual-coffee-roasters",
         "name": "Ritual Coffee Roasters",
-        "coordinates": [-122.42178, 37.756947],
+        "coordinates": [
+          -122.42178,
+          37.756947
+        ],
         "description": "lots of seating to do work",
         "accent": "#8b6f60",
         "logoPath": "/images/coffee-logos/ritual-coffee-roasters.png",
@@ -1094,15 +1593,25 @@
           "seating": true,
           "hours": [
             {
-              "days": ["Sun"],
+              "days": [
+                "Sun"
+              ],
               "label": "6:30 AM – 8 PM"
             },
             {
-              "days": ["Mon", "Tue", "Wed", "Thu"],
+              "days": [
+                "Mon",
+                "Tue",
+                "Wed",
+                "Thu"
+              ],
               "label": "6:30 AM – 7 PM"
             },
             {
-              "days": ["Fri", "Sat"],
+              "days": [
+                "Fri",
+                "Sat"
+              ],
               "label": "6:30 AM – 8 PM"
             }
           ]
@@ -1111,7 +1620,10 @@
       {
         "id": "vive-la-tarte",
         "name": "Vive La Tarte",
-        "coordinates": [-122.43487, 37.75158],
+        "coordinates": [
+          -122.43487,
+          37.75158
+        ],
         "description": "vive la vida in vive la tarte",
         "accent": "#8b6f60",
         "logoPath": "/images/coffee-logos/vive-la-tarte.jpeg",
@@ -1123,7 +1635,15 @@
           "seating": true,
           "hours": [
             {
-              "days": ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+              "days": [
+                "Sun",
+                "Mon",
+                "Tue",
+                "Wed",
+                "Thu",
+                "Fri",
+                "Sat"
+              ],
               "label": "8 AM – 2 PM"
             }
           ]
@@ -1132,7 +1652,10 @@
       {
         "id": "la-boulangerie-noe-valley",
         "name": "La Boulangerie",
-        "coordinates": [-122.42942, 37.75165],
+        "coordinates": [
+          -122.42942,
+          37.75165
+        ],
         "description": "lots of seating",
         "recommendedStudySpot": true,
         "accent": "#8b6f60",
@@ -1146,15 +1669,25 @@
           "seating": true,
           "hours": [
             {
-              "days": ["Sun"],
+              "days": [
+                "Sun"
+              ],
               "label": "7 AM – 4 PM"
             },
             {
-              "days": ["Mon", "Tue", "Wed", "Thu", "Fri"],
+              "days": [
+                "Mon",
+                "Tue",
+                "Wed",
+                "Thu",
+                "Fri"
+              ],
               "label": "6:30 AM – 4:30 PM"
             },
             {
-              "days": ["Sat"],
+              "days": [
+                "Sat"
+              ],
               "label": "7 AM – 4 PM"
             }
           ]
@@ -1163,7 +1696,10 @@
       {
         "id": "temos-cafe",
         "name": "Temo's Cafe",
-        "coordinates": [-122.41141, 37.75247],
+        "coordinates": [
+          -122.41141,
+          37.75247
+        ],
         "description": "pink walls",
         "accent": "#8b6f60",
         "logoPath": "/images/coffee-logos/temos-cafe.png",
@@ -1175,15 +1711,25 @@
           "seating": true,
           "hours": [
             {
-              "days": ["Sun"],
+              "days": [
+                "Sun"
+              ],
               "label": "7 AM – 4 PM"
             },
             {
-              "days": ["Mon", "Tue", "Wed", "Thu", "Fri"],
+              "days": [
+                "Mon",
+                "Tue",
+                "Wed",
+                "Thu",
+                "Fri"
+              ],
               "label": "6:30 AM – 5 PM"
             },
             {
-              "days": ["Sat"],
+              "days": [
+                "Sat"
+              ],
               "label": "7 AM – 5 PM"
             }
           ]
@@ -1192,7 +1738,10 @@
       {
         "id": "finjan-qahwa",
         "name": "Finjan Qahwa",
-        "coordinates": [-122.419, 37.74695],
+        "coordinates": [
+          -122.419,
+          37.74695
+        ],
         "description": "good study spot far south downtown",
         "accent": "#8b6f60",
         "logoPath": "/images/coffee-logos/finjan-qahwa.webp",
@@ -1204,11 +1753,20 @@
           "seating": true,
           "hours": [
             {
-              "days": ["Sun", "Mon", "Tue", "Wed", "Thu"],
+              "days": [
+                "Sun",
+                "Mon",
+                "Tue",
+                "Wed",
+                "Thu"
+              ],
               "label": "7 AM – 10 PM"
             },
             {
-              "days": ["Fri", "Sat"],
+              "days": [
+                "Fri",
+                "Sat"
+              ],
               "label": "7 AM – 11 PM"
             }
           ]
@@ -1217,7 +1775,10 @@
       {
         "id": "golden-goat-coffee",
         "name": "Golden Goat Coffee",
-        "coordinates": [-122.39474, 37.78057],
+        "coordinates": [
+          -122.39474,
+          37.78057
+        ],
         "description": "lots of VCs and founders here\nright next to SPC",
         "accent": "#8b6f60",
         "logoPath": "/images/coffee-logos/golden-goat-coffee.jpg",
@@ -1228,15 +1789,25 @@
         "details": {
           "hours": [
             {
-              "days": ["Sun"],
+              "days": [
+                "Sun"
+              ],
               "label": "Closed"
             },
             {
-              "days": ["Mon", "Tue", "Wed", "Thu", "Fri"],
+              "days": [
+                "Mon",
+                "Tue",
+                "Wed",
+                "Thu",
+                "Fri"
+              ],
               "label": "8 AM – 3 PM"
             },
             {
-              "days": ["Sat"],
+              "days": [
+                "Sat"
+              ],
               "label": "9 AM – 2 PM"
             }
           ]
@@ -1245,7 +1816,10 @@
       {
         "id": "joe-the-juice",
         "name": "Joe & The Juice",
-        "coordinates": [-122.391134, 37.773477],
+        "coordinates": [
+          -122.391134,
+          37.773477
+        ],
         "description": "lots of seating to do work",
         "recommendedStudySpot": true,
         "accent": "#8b6f60",
@@ -1260,15 +1834,25 @@
           "seating": true,
           "hours": [
             {
-              "days": ["Sun"],
+              "days": [
+                "Sun"
+              ],
               "label": "7 AM – 7 PM"
             },
             {
-              "days": ["Mon", "Tue", "Wed", "Thu", "Fri"],
+              "days": [
+                "Mon",
+                "Tue",
+                "Wed",
+                "Thu",
+                "Fri"
+              ],
               "label": "6 AM – 7 PM"
             },
             {
-              "days": ["Sat"],
+              "days": [
+                "Sat"
+              ],
               "label": "7 AM – 7 PM"
             }
           ]
@@ -1277,7 +1861,10 @@
       {
         "id": "sightglass-coffee-soma",
         "name": "Sightglass Coffee",
-        "coordinates": [-122.40844, 37.777034],
+        "coordinates": [
+          -122.40844,
+          37.777034
+        ],
         "description": "good coffee and lots of seating",
         "recommendedStudySpot": true,
         "accent": "#8b6f60",
@@ -1290,15 +1877,25 @@
           "seating": true,
           "hours": [
             {
-              "days": ["Sun"],
+              "days": [
+                "Sun"
+              ],
               "label": "7 AM – 5 PM"
             },
             {
-              "days": ["Mon", "Tue", "Wed", "Thu", "Fri"],
+              "days": [
+                "Mon",
+                "Tue",
+                "Wed",
+                "Thu",
+                "Fri"
+              ],
               "label": "6:30 AM – 5 PM"
             },
             {
-              "days": ["Sat"],
+              "days": [
+                "Sat"
+              ],
               "label": "7 AM – 5 PM"
             }
           ]
@@ -1307,7 +1904,10 @@
       {
         "id": "home-coffee-roasters-sunset",
         "name": "Home Coffee Roasters",
-        "coordinates": [-122.476667, 37.753978],
+        "coordinates": [
+          -122.476667,
+          37.753978
+        ],
         "description": "ube bread!",
         "recommendedStudySpot": true,
         "accent": "#8b6f60",
@@ -1322,15 +1922,25 @@
           "seating": true,
           "hours": [
             {
-              "days": ["Sun"],
+              "days": [
+                "Sun"
+              ],
               "label": "8 AM – 4 PM"
             },
             {
-              "days": ["Mon", "Tue", "Wed", "Thu", "Fri"],
+              "days": [
+                "Mon",
+                "Tue",
+                "Wed",
+                "Thu",
+                "Fri"
+              ],
               "label": "7:30 AM – 4 PM"
             },
             {
-              "days": ["Sat"],
+              "days": [
+                "Sat"
+              ],
               "label": "8 AM – 4 PM"
             }
           ]
@@ -1339,7 +1949,10 @@
       {
         "id": "henry-s-house-of-coffee",
         "name": "Henry's House of Coffee",
-        "coordinates": [-122.480463, 37.754042],
+        "coordinates": [
+          -122.480463,
+          37.754042
+        ],
         "description": "love seeing open roasteries",
         "accent": "#8b6f60",
         "logoPath": "/images/coffee-logos/henry-s-house-of-coffee.jpg",
@@ -1351,15 +1964,25 @@
           "seating": true,
           "hours": [
             {
-              "days": ["Sun"],
+              "days": [
+                "Sun"
+              ],
               "label": "7 AM – 5 PM"
             },
             {
-              "days": ["Mon", "Tue", "Wed", "Thu", "Fri"],
+              "days": [
+                "Mon",
+                "Tue",
+                "Wed",
+                "Thu",
+                "Fri"
+              ],
               "label": "6 AM – 5 PM"
             },
             {
-              "days": ["Sat"],
+              "days": [
+                "Sat"
+              ],
               "label": "7 AM – 5 PM"
             }
           ]
@@ -1368,7 +1991,10 @@
       {
         "id": "andytown-coffee-roasters-sunset",
         "name": "Andytown Coffee Roasters",
-        "coordinates": [-122.503414, 37.756318],
+        "coordinates": [
+          -122.503414,
+          37.756318
+        ],
         "description": "nice shade in a hot sunny day",
         "accent": "#8b6f60",
         "logoPath": "/images/coffee-logos/andytown-coffee-roasters-sunset.png",
@@ -1380,7 +2006,15 @@
           "seating": true,
           "hours": [
             {
-              "days": ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+              "days": [
+                "Sun",
+                "Mon",
+                "Tue",
+                "Wed",
+                "Thu",
+                "Fri",
+                "Sat"
+              ],
               "label": "7 AM – 5 PM"
             }
           ]
@@ -1389,7 +2023,10 @@
       {
         "id": "java-beach-cafe",
         "name": "Java Beach Cafe",
-        "coordinates": [-122.50902, 37.761438],
+        "coordinates": [
+          -122.50902,
+          37.761438
+        ],
         "description": "nice beach spot 🏄",
         "accent": "#8b6f60",
         "logoPath": "/images/coffee-logos/java-beach-cafe.png",
@@ -1401,7 +2038,15 @@
           "seating": true,
           "hours": [
             {
-              "days": ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+              "days": [
+                "Sun",
+                "Mon",
+                "Tue",
+                "Wed",
+                "Thu",
+                "Fri",
+                "Sat"
+              ],
               "label": "7 AM – 5 PM"
             }
           ]
@@ -1410,7 +2055,10 @@
       {
         "id": "california-bakery",
         "name": "California Bakery",
-        "coordinates": [-122.4732, 37.7436],
+        "coordinates": [
+          -122.4732,
+          37.7436
+        ],
         "description": "can never get enough almond croissants",
         "accent": "#8b6f60",
         "logoPath": "/images/coffee-logos/california-bakery.png",
@@ -1422,7 +2070,15 @@
           "seating": true,
           "hours": [
             {
-              "days": ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+              "days": [
+                "Sun",
+                "Mon",
+                "Tue",
+                "Wed",
+                "Thu",
+                "Fri",
+                "Sat"
+              ],
               "label": "8 AM – 6 PM"
             }
           ]
@@ -1431,7 +2087,10 @@
       {
         "id": "el-cafe",
         "name": "El Cafe",
-        "coordinates": [-122.48137, 37.74303],
+        "coordinates": [
+          -122.48137,
+          37.74303
+        ],
         "description": "very friendly staff, good spot to read",
         "accent": "#8b6f60",
         "logoPath": "/images/coffee-logos/el-cafe.png",
@@ -1444,23 +2103,35 @@
           "seating": true,
           "hours": [
             {
-              "days": ["Sun"],
+              "days": [
+                "Sun"
+              ],
               "label": "7:30 AM – 4 PM"
             },
             {
-              "days": ["Mon", "Tue", "Wed"],
+              "days": [
+                "Mon",
+                "Tue",
+                "Wed"
+              ],
               "label": "6 AM – 5 PM"
             },
             {
-              "days": ["Thu"],
+              "days": [
+                "Thu"
+              ],
               "label": "9 AM – 5 PM"
             },
             {
-              "days": ["Fri"],
+              "days": [
+                "Fri"
+              ],
               "label": "6 AM – 5 PM"
             },
             {
-              "days": ["Sat"],
+              "days": [
+                "Sat"
+              ],
               "label": "7:30 AM – 4 PM"
             }
           ]
@@ -1469,7 +2140,10 @@
       {
         "id": "andytown-roastery-outer-sunset-2",
         "name": "Andytown Roastery",
-        "coordinates": [-122.49839, 37.7422],
+        "coordinates": [
+          -122.49839,
+          37.7422
+        ],
         "description": "pure roastery",
         "accent": "#8b6f60",
         "logoPath": "/images/coffee-logos/andytown-roastery-outer-sunset-2.png",
@@ -1480,15 +2154,25 @@
         "details": {
           "hours": [
             {
-              "days": ["Sun"],
+              "days": [
+                "Sun"
+              ],
               "label": "8 AM – 4 PM"
             },
             {
-              "days": ["Mon", "Tue", "Wed", "Thu", "Fri"],
+              "days": [
+                "Mon",
+                "Tue",
+                "Wed",
+                "Thu",
+                "Fri"
+              ],
               "label": "7 AM – 3 PM"
             },
             {
-              "days": ["Sat"],
+              "days": [
+                "Sat"
+              ],
               "label": "8 AM – 4 PM"
             }
           ]
@@ -1497,7 +2181,10 @@
       {
         "id": "andytown-coffee-roasters",
         "name": "Andytown Coffee Roasters",
-        "coordinates": [-122.50502, 37.74154],
+        "coordinates": [
+          -122.50502,
+          37.74154
+        ],
         "description": "why are there two andytown roasters next to each other",
         "accent": "#8b6f60",
         "logoPath": "/images/coffee-logos/andytown-coffee-roasters.png",
@@ -1509,15 +2196,25 @@
           "seating": true,
           "hours": [
             {
-              "days": ["Sun"],
+              "days": [
+                "Sun"
+              ],
               "label": "8 AM – 5 PM"
             },
             {
-              "days": ["Mon", "Tue", "Wed", "Thu"],
+              "days": [
+                "Mon",
+                "Tue",
+                "Wed",
+                "Thu"
+              ],
               "label": "8 AM – 3 PM"
             },
             {
-              "days": ["Fri", "Sat"],
+              "days": [
+                "Fri",
+                "Sat"
+              ],
               "label": "8 AM – 5 PM"
             }
           ]
@@ -1529,11 +2226,63 @@
     "id": "seattle",
     "label": "Seattle, Washington",
     "shortLabel": "Seattle",
-    "center": [-122.3321, 47.6062],
-    "initialBounds": [
-      [-122.375, 47.58],
-      [-122.29, 47.635]
+    "center": [
+      -122.3321,
+      47.6062
     ],
-    "shops": []
+    "initialBounds": [
+      [
+        -122.375,
+        47.58
+      ],
+      [
+        -122.29,
+        47.635
+      ]
+    ],
+    "shops": [
+      {
+        "id": "monorail-espresso",
+        "name": "Monorail Espresso",
+        "coordinates": [
+          -122.330637,
+          47.614283
+        ],
+        "description": "right by the convention center",
+        "accent": "#8b6f60",
+        "logoPath": "/images/coffee-logos/monorail-espresso.jpeg",
+        "website": "https://www.monorailespresso.com/",
+        "neighborhood": "Downtown Seattle",
+        "address": "1004 Pine St",
+        "addressUrl": "https://maps.app.goo.gl/ATxouFJX3eZgiGce8",
+        "details": {
+          "seating": true,
+          "hours": [
+            {
+              "days": [
+                "Sun"
+              ],
+              "label": "7 AM - 6 PM"
+            },
+            {
+              "days": [
+                "Mon",
+                "Tue",
+                "Wed",
+                "Thu",
+                "Fri"
+              ],
+              "label": "7 AM - 5:30 PM"
+            },
+            {
+              "days": [
+                "Sat"
+              ],
+              "label": "7 AM - 6 PM"
+            }
+          ]
+        }
+      }
+    ]
   }
 }
