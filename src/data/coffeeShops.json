@@ -2282,6 +2282,49 @@
             }
           ]
         }
+      },
+      {
+        "id": "retro-coffee",
+        "name": "Retro Coffee",
+        "coordinates": [
+          -122.33135,
+          47.60647
+        ],
+        "description": "right under my office building",
+        "accent": "#8b6f60",
+        "logoPath": "/images/coffee-logos/retro-coffee.jpeg",
+        "website": "https://places.singleplatform.com/retro-coffee/menu",
+        "neighborhood": "Downtown Seattle",
+        "address": "920 5th Ave #150",
+        "addressUrl": "https://maps.app.goo.gl/vtWU39ZtEdhrpwGJ7",
+        "details": {
+          "wifi": true,
+          "seating": true,
+          "hours": [
+            {
+              "days": [
+                "Sun"
+              ],
+              "label": "7 AM - 1 PM"
+            },
+            {
+              "days": [
+                "Mon",
+                "Tue",
+                "Wed",
+                "Thu",
+                "Fri"
+              ],
+              "label": "6 AM - 5 PM"
+            },
+            {
+              "days": [
+                "Sat"
+              ],
+              "label": "7 AM - 1 PM"
+            }
+          ]
+        }
       }
     ]
   }
