@@ -2325,6 +2325,51 @@
             }
           ]
         }
+      },
+      {
+        "id": "olympia-coffee-roasting",
+        "name": "Olympia Coffee Roasting",
+        "coordinates": [
+          -122.335231,
+          47.610384
+        ],
+        "description": "massive interior, nice building",
+        "recommendedStudySpot": true,
+        "accent": "#8b6f60",
+        "logoPath": "/images/coffee-logos/olympia-coffee-roasting.jpeg",
+        "website": "https://olympiacoffee.com/",
+        "neighborhood": "Downtown Seattle",
+        "address": "1420 5th Ave Ste 103",
+        "addressUrl": "https://maps.app.goo.gl/TZXoRXKwUdD3BRGx7",
+        "details": {
+          "wifi": true,
+          "sockets": true,
+          "seating": true,
+          "hours": [
+            {
+              "days": [
+                "Sun"
+              ],
+              "label": "7 AM - 6 PM"
+            },
+            {
+              "days": [
+                "Mon",
+                "Tue",
+                "Wed",
+                "Thu",
+                "Fri"
+              ],
+              "label": "6 AM - 6 PM"
+            },
+            {
+              "days": [
+                "Sat"
+              ],
+              "label": "7 AM - 6 PM"
+            }
+          ]
+        }
       }
     ]
   }
