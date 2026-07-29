@@ -2372,6 +2372,45 @@
             }
           ]
         }
+      },
+      {
+        "id": "little-oddfellows",
+        "name": "Little Oddfellows",
+        "coordinates": [
+          -122.319957,
+          47.614753
+        ],
+        "description": "always loved being in a library, especially library coffee shops",
+        "recommendedStudySpot": true,
+        "accent": "#8b6f60",
+        "logoPath": "/images/coffee-logos/little-oddfellows.jpeg",
+        "website": "http://www.oddfellowscafe.com/little-oddfellows/",
+        "neighborhood": "Capitol Hill",
+        "address": "1521 10th Ave",
+        "addressUrl": "https://maps.app.goo.gl/L5JKT75Aw3J9gtwh6",
+        "details": {
+          "wifi": true,
+          "seating": true,
+          "hours": [
+            {
+              "days": [
+                "Sun",
+                "Mon",
+                "Tue",
+                "Wed",
+                "Thu"
+              ],
+              "label": "8 AM - 7 PM"
+            },
+            {
+              "days": [
+                "Fri",
+                "Sat"
+              ],
+              "label": "8 AM - 9 PM"
+            }
+          ]
+        }
       }
     ]
   }
