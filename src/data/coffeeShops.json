@@ -2291,6 +2291,7 @@
           47.60647
         ],
         "description": "right under my office building",
+        "recommendedStudySpot": true,
         "accent": "#8b6f60",
         "logoPath": "/images/coffee-logos/retro-coffee.jpeg",
         "website": "https://places.singleplatform.com/retro-coffee/menu",
@@ -2299,6 +2300,7 @@
         "addressUrl": "https://maps.app.goo.gl/vtWU39ZtEdhrpwGJ7",
         "details": {
           "wifi": true,
+          "sockets": true,
           "seating": true,
           "hours": [
             {
