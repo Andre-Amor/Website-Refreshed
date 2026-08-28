@@ -1,5 +1,6 @@
 ---
 import "leaflet/dist/leaflet.css";
+import "maplibre-gl/dist/maplibre-gl.css";
 import type { CoffeeShop, CoffeeShopHoursEntry } from "../data/coffeeShops";
 
 type CoffeeCityOption = {
@@ -319,7 +320,12 @@ const selectedCityOption = cityOptions.find((city) => city.id === cityId) ?? cit
 </section>
 
 <script>
+  import { maplibreGL } from "@maplibre/maplibre-gl-leaflet";
   import L from "leaflet";
+  import { setWorkerUrl } from "maplibre-gl";
+  import maplibreWorkerUrl from "maplibre-gl/dist/maplibre-gl-worker.mjs?worker&url";
+
+  setWorkerUrl(maplibreWorkerUrl);
 
   const root = document.querySelector('[data-map-root="favorite-coffee-map"]');
 
@@ -362,7 +368,6 @@ const selectedCityOption = cityOptions.find((city) => city.id === cityId) ?? cit
     ) {
       mapContainer.dataset.initialized = "true";
 
-      const tileUrl = "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png";
       const DEFAULT_SIDEBAR_WIDTH = 352;
       const MIN_SIDEBAR_WIDTH = 248;
       const MAX_SIDEBAR_WIDTH = 448;
@@ -397,20 +402,100 @@ const selectedCityOption = cityOptions.find((city) => city.id === cityId) ?? cit
 
       L.control
         .attribution({
-          position: "bottomleft",
+          position: "bottomright",
           prefix: false,
         })
         .addTo(map);
-      L.tileLayer(tileUrl, {
-        subdomains: "abcd",
+      const maplibreLayer = maplibreGL({
+        style: "https://tiles.openfreemap.org/styles/positron",
         maxZoom: 20,
-        detectRetina: true,
-        keepBuffer: 8,
-        updateWhenZooming: true,
-        updateInterval: 120,
-        attribution:
-          '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="https://carto.com/attributions">CARTO</a>',
       }).addTo(map);
+      const basemap = maplibreLayer.getMaplibreMap();
+
+      basemap.once("load", () => {
+        basemap.addLayer(
+          {
+            id: "coffee-map-parkland",
+            type: "fill",
+            source: "openmaptiles",
+            "source-layer": "landcover",
+            filter: [
+              "all",
+              ["match", ["geometry-type"], ["MultiPolygon", "Polygon"], true, false],
+              ["match", ["get", "subclass"], ["park", "recreation_ground"], true, false],
+            ],
+            paint: {
+              "fill-color": "#dfe9dc",
+              "fill-opacity": 0.88,
+            },
+          },
+          "landcover_wood",
+        );
+
+        for (const layer of basemap.getStyle().layers) {
+          const sourceLayer = "source-layer" in layer ? layer["source-layer"] : undefined;
+
+          if (layer.id === "background") {
+            basemap.setPaintProperty(layer.id, "background-color", "#f3f3f0");
+          }
+
+          if (layer.id === "water") {
+            basemap.setPaintProperty(layer.id, "fill-color", "#d7dcdd");
+          }
+
+          if (layer.id === "park") {
+            basemap.setPaintProperty(layer.id, "fill-color", "#e1e9df");
+          }
+
+          if (layer.id === "landcover_wood") {
+            basemap.setPaintProperty(layer.id, "fill-color", "#dce6da");
+          }
+
+          if (
+            layer.type === "line" &&
+            sourceLayer === "transportation" &&
+            layer.id.includes("casing")
+          ) {
+            basemap.setPaintProperty(layer.id, "line-color", "#dededb");
+            basemap.setPaintProperty(layer.id, "line-opacity", 0.55);
+          }
+
+          if (
+            layer.type === "line" &&
+            sourceLayer === "transportation" &&
+            layer.id.endsWith("_inner")
+          ) {
+            basemap.setPaintProperty(layer.id, "line-color", "#f8f8f6");
+            basemap.setPaintProperty(layer.id, "line-opacity", 0.88);
+          }
+
+          if (layer.id === "highway_minor") {
+            basemap.setPaintProperty(layer.id, "line-color", "#e6e6e2");
+            basemap.setPaintProperty(layer.id, "line-opacity", 0.75);
+          }
+
+          if (layer.type === "symbol" && sourceLayer === "transportation_name") {
+            basemap.setPaintProperty(layer.id, "text-color", "#77756f");
+            basemap.setPaintProperty(layer.id, "text-opacity", 0.72);
+          }
+
+          if (layer.id === "label_city") {
+            basemap.setFilter(layer.id, [
+              "all",
+              ["==", ["get", "class"], "city"],
+              ["!=", ["get", "capital"], 2],
+              ["!=", ["coalesce", ["get", "name_en"], ["get", "name"]], "San Francisco"],
+            ]);
+          }
+
+          if (
+            layer.type === "symbol" &&
+            (sourceLayer === "poi" || sourceLayer === "aerodrome_label")
+          ) {
+            basemap.setLayoutProperty(layer.id, "visibility", "none");
+          }
+        }
+      });
 
       const clampZoom = (zoom) => Math.min(map.getMaxZoom(), Math.max(map.getMinZoom(), zoom));
       const PINCH_ZOOM_STEP = 1;
@@ -2524,11 +2609,6 @@ const selectedCityOption = cityOptions.find((city) => city.id === cityId) ?? cit
     overscroll-behavior: contain;
   }
 
-  .coffee-map-section .leaflet-tile {
-    outline: 1px solid transparent;
-    filter: saturate(1.16) contrast(1.03);
-  }
-
   .coffee-map-section .coffee-marker-wrapper {
     background: transparent;
     border: 0;
@@ -2775,7 +2855,7 @@ const selectedCityOption = cityOptions.find((city) => city.id === cityId) ?? cit
 
     .coffee-map-section .leaflet-bottom.leaflet-right,
     .coffee-map-section .leaflet-bottom.leaflet-left {
-      margin-bottom: 1rem;
+      margin-bottom: calc(var(--mobile-sheet-visible-height) + 1rem);
     }
 
     .coffee-map-sidebar__sheet-handle {

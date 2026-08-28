@@ -12,7 +12,9 @@
     "astro": "astro"
   },
   "dependencies": {
-    "leaflet": "^1.9.4"
+    "@maplibre/maplibre-gl-leaflet": "^0.1.4",
+    "leaflet": "^1.9.4",
+    "maplibre-gl": "^6.6.0"
   },
   "devDependencies": {
     "@astrojs/language-server": "^2.16.10",
