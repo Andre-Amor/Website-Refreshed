@@ -2411,6 +2411,51 @@
             }
           ]
         }
+      },
+      {
+        "id": "gearhouse-coffee-shop",
+        "name": "Gearhouse Coffee Shop",
+        "coordinates": [
+          -122.32172,
+          47.62121
+        ],
+        "description": "incredible study spot and great outdoor vibes",
+        "recommendedStudySpot": true,
+        "accent": "#8b6f60",
+        "logoPath": "/images/coffee-logos/gearhouse-coffee-shop.png",
+        "website": "https://www.joingearhouse.com/gearhouse-coffee",
+        "neighborhood": "Capitol Hill",
+        "address": "800 E Thomas St Ste A",
+        "addressUrl": "https://maps.app.goo.gl/VNfUgAP9QnFW2iWu9",
+        "details": {
+          "wifi": true,
+          "sockets": true,
+          "seating": true,
+          "hours": [
+            {
+              "days": [
+                "Sun"
+              ],
+              "label": "7 AM - 7 PM"
+            },
+            {
+              "days": [
+                "Mon",
+                "Tue",
+                "Wed",
+                "Thu",
+                "Fri"
+              ],
+              "label": "7:30 AM - 8 PM"
+            },
+            {
+              "days": [
+                "Sat"
+              ],
+              "label": "7 AM - 7 PM"
+            }
+          ]
+        }
       }
     ]
   }
